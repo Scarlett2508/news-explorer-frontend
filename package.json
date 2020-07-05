@@ -1,0 +1,24 @@
+{
+  "name": "news-explorer-frontend",
+  "version": "1.0.0",
+  "description": "frontend for diploma project",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Scarlett2508/news-explorer-frontend.git"
+  },
+  "author": "Alevtina Fedina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Scarlett2508/news-explorer-frontend/issues"
+  },
+  "homepage": "https://github.com/Scarlett2508/news-explorer-frontend#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0"
+  }
+}
