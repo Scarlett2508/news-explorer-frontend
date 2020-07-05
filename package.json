@@ -4,7 +4,7 @@
   "description": "frontend for diploma project",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --mode production",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development --open --watch",
     "deploy": "gh-pages -d dist"
   },
@@ -19,6 +19,14 @@
   },
   "homepage": "https://github.com/Scarlett2508/news-explorer-frontend#readme",
   "devDependencies": {
-    "webpack": "^4.43.0"
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "eslint-plugin-import": "^2.22.0"
   }
 }
