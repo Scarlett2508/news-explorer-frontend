@@ -1,0 +1,7 @@
+.menu__link {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #FFF;
+}

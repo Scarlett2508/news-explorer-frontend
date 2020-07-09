@@ -1,4 +1,5 @@
 @import url(__button/menu__button.css);
+@import url(./__link/menu__link.css);
 
 .menu {
   display: flex;
@@ -6,6 +7,5 @@
   list-style: none;
   justify-content: space-around;
 
-  text-decoration: none !important;
-  cursor: pointer
+
 }

@@ -2,11 +2,16 @@
 @import url(../blocks/menu/menu.css);
 @import url(../blocks/search/search.css);
 @import url(../blocks/author/author.css);
+@import url(../vendor/fonts.css);
+
+body {
+  background-color: #fff;
+  margin: 0;
+}
 
 .page {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
