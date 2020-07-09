@@ -1,5 +1,4 @@
 .search__button {
-  position: absolute;
   top: 0;
   left: calc(100% - 168px);
   box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);

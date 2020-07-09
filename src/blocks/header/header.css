@@ -1,2 +1,12 @@
 @import url(__container/header__container.css);
 @import url(__logo/header__logo.css);
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../images/mainpic.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 576px;
+  max-width: 1440px;
+}

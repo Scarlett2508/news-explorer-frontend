@@ -1,1 +1,11 @@
 @import url(__button/menu__button.css);
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+
+  text-decoration: none !important;
+  cursor: pointer
+}
