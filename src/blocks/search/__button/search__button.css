@@ -1,8 +1,9 @@
 .search__button {
+  position: absolute;
   top: 0;
   left: calc(100% - 168px);
   box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
-  border: 1px solid #e6e8eb;
+  border: 1px solid #E6E8EB;
   border-radius: 100px;
   font-family: 'Roboto';
   font-style: normal;
@@ -12,5 +13,15 @@
   width: 168px;
   height: 64px;
   color: #b6bcbf;
-  background: #e6e8eb;
+  background: #E6E8EB;
+  cursor: pointer;
+  outline: none;
+}
+
+.search__button:hover {
+  background: #347EFF;
+}
+
+.search__button:active {
+  background: #2A65CC;
 }
