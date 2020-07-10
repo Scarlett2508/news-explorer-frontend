@@ -2,7 +2,7 @@
 @import url(_saved-articles/menu__button_saved-articles.css);
 
 .menu__button {
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;

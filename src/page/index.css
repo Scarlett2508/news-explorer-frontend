@@ -5,6 +5,7 @@
 @import url(../vendor/fonts.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/loading/loading.css);
+@import url(../blocks/popup/popup.css);
 
 body {
   background-color: #fff;

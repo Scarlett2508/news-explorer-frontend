@@ -38,7 +38,7 @@
       </header>
       <section class="loading">
         <div class="loading__search">
-          <i class="loading__circle"></i>
+          <img class="loading__circle" src="images/Ellipse.png" alt="Loading">
           <p class="loading__text">Идет поиск новостей...</p>
         </div>
         <div class="loading__not-found">
@@ -76,6 +76,62 @@
     </div>
 
   </footer>
+  <!-- Popup section -->
+  <section class="popup popup__signup">
+    <div class="popup__container">
+      <img src="./images/back.png" class="popup__close" alt="Крестик">
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form" name="signup">
+        <label class="popup__label" for="signup_email">Email</label>
+        <input class="popup__input" autofocus="autofocus" type="email" name="email" pattern="(\w)+(-?\w+)@\w+\.\w+"
+          placeholder="Введите почту" required>
+        <span class="popup__error">Неправильный формат email</span>
+        <label class="popup__label" for="signup_password">Пароль</label>
+        <input type="password" name="password" class="popup__input" placeholder="Введите пароль" minlength="6"
+          maxlength="30" required>
+        <span class="popup__error">Длина пароля минимум 6 символов</span>
+        <label class="popup__label" for="signup_name">Имя</label>
+        <input class="popup__input" type="text" name="name" pattern="^[А-Я][а-яё]+(-[А-Я][а-яё]*)?" minlength="2"
+          maxlength="20" placeholder="Имя" required>
+        <span class="popup__error">Длина имени минимум 2 символа</span>
+        <span class="popup__error signup__error">Такой пользователь уже есть</span>
+        <button type="submit" class="popup__button">Зарегистрироваться</button>
+        <div class="popup__down">
+          <span class="popup__text">или &zwnj;</span>
+          <span class="popup__link">Войти</span>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup__login">
+    <div class="popup__container">
+      <img src="./images/back.png" class="popup__close" alt="Крестик">
+      <h3 class="popup__title">Вход</h3>
+      <form class="popup__form" name="login">
+        <label class="popup__label" for="login_email">Email</label>
+        <input class="popup__input" autofocus="autofocus" type="email" name="email" pattern="(\w)+(-?\w+)@\w+\.\w+"
+          placeholder="Введите почту" required>
+        <span class="popup__error">Неправильный формат email</span>
+        <label class="popup__label" for="login_password">Пароль</label>
+        <input type="password" name="password" class="popup__input" placeholder="Введите пароль" minlength="6"
+          maxlength="30" required>
+        <span class="popup__error">Неправильный пароль</span>
+        <span class="popup__error signup__error">Такой пользователь уже есть</span>
+        <button type="submit" class="popup__button">Войти</button>
+        <div class="popup__down">
+          <span class="popup__text">или &zwnj;</span>
+          <span class="popup__link">Зарегистрироваться</span>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="popup popup__success">
+    <div class="popup__container">
+      <img src="./images/back.png" class="popup__close" alt="Крестик">
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <span class="popup__link">Выполнить вход</span>
+    </div>
+  </section>
 </body>
 
 </html>
