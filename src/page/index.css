@@ -3,6 +3,7 @@
 @import url(../blocks/search/search.css);
 @import url(../blocks/author/author.css);
 @import url(../vendor/fonts.css);
+@import url(../blocks/footer/footer.css);
 
 body {
   background-color: #fff;
@@ -15,4 +16,5 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
 }

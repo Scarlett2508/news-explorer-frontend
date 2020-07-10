@@ -4,7 +4,8 @@
 @import url(./__text/author__text.css);
 @import url(./__title/author__title.css);
 
-.about-author {
+.author {
   width: 100%;
   background-color: #fff;
+  -webkit-font-smoothing: antialiased;
 }
