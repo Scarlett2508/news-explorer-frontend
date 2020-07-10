@@ -7,6 +7,8 @@
 @import url(../blocks/loading/loading.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/preloader/preloader.css);
+@import url(../blocks/article/article.css);
+@import url(../blocks/articles/articles.css);
 
 body {
   background-color: #fff;

@@ -28,6 +28,7 @@
                 src="./images/Union.png" alt="дверь на выход" class="menu__button_exit-pic"></li>
           </ul>
         </div>
+
         <div class="search">
           <h2 class="search search__title">Что в мире творится?</h2>
           <h3 class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
@@ -38,6 +39,7 @@
           </form>
         </div>
       </header>
+
       <section class="loading">
         <div class="loading__search">
           <i class="preloader"></i>
@@ -50,11 +52,51 @@
         </div>
         <div class="loading__articles">
           <h2 class="loading__search-results">Результаты поиска</h2>
-          <div class="article"></div>
+          <div class="articles">
+            <div class="article">
+              <div class="article__image-container">
+                <img class="article__pic" src="./images/image_08.png" alt="Фотография новости">
+                <div class="article__bookmark"></div>
+              </div>
+              <span class="article__date">2 августа, 2019</span>
+              <h3 class="article__title">Национальное достояние – парки</h3>
+              <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться
+                к природе.</p>
+              <a class="article__source" href="#">Лента.ру</a>
+            </div>
+            <div class="article">
+              <div class="article__image-container">
+                <img class="article__pic" src="./images/image_04.png" alt="Фотография новости">
+                <div class="article__bookmark article__bookmark_pressed"></div>
+              </div>
+              <span class="article__date">2 августа, 2019</span>
+              <h3 class="article__title">Лесные огоньки: история одной фотографии</h3>
+              <p class="article__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы
+                запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+              <a class="article__source" href="#">Медуза</a>
+            </div>
+
+            <div class="article">
+              <div class="article__image-container">
+                <img class="article__pic" src="./images/image_07.png" alt="Фотография новости">
+                <div class="article__bookmark"></div>
+              </div>
+              <span class="article__date">2 августа, 2019</span>
+              <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+              <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
+                необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              <a class="article__source" href="#">Риа</a>
+            </div>
+
+
+          </div>
           <button class="loading__button">Показать ещё</button>
         </div>
 
+
       </section>
+
       <section class="author">
         <div class="author__container">
           <img src="./images/author.png" alt="Аватар" class="author__pic">
@@ -68,8 +110,10 @@
           </div>
         </div>
       </section>
+
     </div>
   </main>
+
   <footer class="footer">
     <div class="footer__container">
       <p class="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>
@@ -80,10 +124,9 @@
         <a class="footer__link" href="https://www.facebook.com/profile.php?id=100004391015304"><img
             src="./images/fb.png" alt="Facebook"></a>
       </ul>
-
     </div>
-
   </footer>
+
   <!-- Popup section -->
   <section class="popup popup__signup">
     <div class="popup__container">
@@ -111,6 +154,7 @@
       </form>
     </div>
   </section>
+
   <section class="popup popup__login">
     <div class="popup__container">
       <img src="./images/back.png" class="popup__close" alt="Крестик">
@@ -133,6 +177,7 @@
       </form>
     </div>
   </section>
+
   <section class="popup popup__success">
     <div class="popup__container">
       <img src="./images/back.png" class="popup__close" alt="Крестик">
@@ -140,23 +185,6 @@
       <span class="popup__link">Выполнить вход</span>
     </div>
   </section>
-<!-- образец статьи -->
-  <!-- <template id="article-template">
-    <div class="article">
-      <button class="article__mark"></button>
-      <a class="article__link">
-        <img class="article__image" style="background-image: url(./images/image_08.png)" alt="Фото статьи">
-        <div class="article__container">
-          <div class="article__date"></div>
-          <h3 class="article__title"></h3>
-          <p class="article__text"></p>
-          <p class="article__source"></p>
-        </div>
-      </a>
-    </div>
-  </template> -->
-
-
 
 </body>
 

@@ -1,0 +1,17 @@
+.article__bookmark {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  background-image: url('../../../images/Rectangle\ 8.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.article__bookmark_pressed {
+  background-image: url(../../../images/Rectangle\ blue.png);
+}
