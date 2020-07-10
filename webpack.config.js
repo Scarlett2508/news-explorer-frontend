@@ -5,6 +5,8 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -12,35 +14,36 @@ module.exports = {
     filename: '[name].[chunkhash].js',
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: { loader: 'babel-loader' },
-      exclude: /node_modules/,
-    },
-    {
-      test: /\.css$/,
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: { publicPath: '../' },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
         },
-        'css-loader', 'postcss-loader',
-      ],
-    },
-    {
-      test: /\.(png|jpg|gif|ico|svg)$/,
-      use: [
-        'file-loader?name=./images/[name].[ext]',
-        {
-          loader: 'image-webpack-loader',
-          options: {},
-        },
-      ],
-    },
-    {
-      test: /\.(eot|ttf|woff|woff2)$/,
-      loader: 'file-loader?name=./vendor/[name].[ext]',
-    },
+      },
+
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=./vendor/[name].[ext]',
+      },
+      {
+        test: /\.css$/i,
+        use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(gif|png|jpe?g|ico|svg)$/i,
+        use: [
+          'file-loader?name=./images/[name].[ext]',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -51,7 +54,7 @@ module.exports = {
       filename: '[name]/[name].[contenthash].css',
     }),
     new CleanWebpackPlugin(),
-    new WebpackMd5Hash(),
+
     new OptimizeCssAssetsWebpackPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
@@ -60,5 +63,6 @@ module.exports = {
       },
       canPrint: true,
     }),
+    new WebpackMd5Hash(),
   ],
 };
