@@ -4,4 +4,22 @@
   font-family: 'Roboto';
   font-style: normal;
   color: #FFF;
+  margin: auto;
+}
+
+.menu__link_articles {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #FFF;
+  display: none;
+}
+
+.menu__link_exit {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #FFF;
 }

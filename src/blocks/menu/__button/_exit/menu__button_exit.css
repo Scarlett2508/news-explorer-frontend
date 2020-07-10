@@ -1,0 +1,15 @@
+.menu__button_exit {
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 100px;
+}
+
+.menu__button_exit-pic {
+  border: none;
+  width: 17.41px;
+  height: 16px;
+  margin-left: 6px;
+  margin-top: 3px;
+
+}

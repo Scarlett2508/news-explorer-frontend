@@ -1,5 +1,6 @@
 @import url(_auth/menu__button_auth.css);
 @import url(_saved-articles/menu__button_saved-articles.css);
+@import url(./_exit/menu__button_exit.css);
 
 .menu__button {
   font-family: 'Roboto';
@@ -7,4 +8,8 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+}
+
+.menu__button:last-of-type {
+  display: none;
 }
