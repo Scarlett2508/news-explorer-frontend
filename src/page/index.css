@@ -4,6 +4,7 @@
 @import url(../blocks/author/author.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/loading/loading.css);
 
 body {
   background-color: #fff;
