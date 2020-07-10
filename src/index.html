@@ -25,8 +25,7 @@
                 статьи</a></li>
             <li class="menu menu__button menu__button_auth"><a href="#" class="link menu__link">Авторизоваться</a></li>
             <li class="menu menu__button menu__button_exit"><a href="#" class="link menu__link_exit">Имя</a><img
-                src="./images/Union.png" alt="дверь на выход"
-                class="menu__button_exit-pic"></li>
+                src="./images/Union.png" alt="дверь на выход" class="menu__button_exit-pic"></li>
           </ul>
         </div>
         <div class="search">
@@ -41,7 +40,7 @@
       </header>
       <section class="loading">
         <div class="loading__search">
-          <img class="loading__circle" src="images/Ellipse.png" alt="Loading">
+          <i class="preloader"></i>
           <p class="loading__text">Идет поиск новостей...</p>
         </div>
         <div class="loading__not-found">
@@ -49,6 +48,12 @@
           <h2 class="loading__title">Ничего не найдено</h2>
           <p class="loading__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
+        <div class="loading__articles">
+          <h2 class="loading__search-results">Результаты поиска</h2>
+          <div class="article"></div>
+          <button class="loading__button">Показать ещё</button>
+        </div>
+
       </section>
       <section class="author">
         <div class="author__container">
@@ -67,7 +72,7 @@
   </main>
   <footer class="footer">
     <div class="footer__container">
-      <p class="footer__copyright">@ 2020 Supersite, Powered by News API</p>
+      <p class="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>
       <ul class="footer__links">
         <a class="footer__link" href="#">Главная</a>
         <a class="footer__link" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
@@ -135,6 +140,24 @@
       <span class="popup__link">Выполнить вход</span>
     </div>
   </section>
+<!-- образец статьи -->
+  <!-- <template id="article-template">
+    <div class="article">
+      <button class="article__mark"></button>
+      <a class="article__link">
+        <img class="article__image" style="background-image: url(./images/image_08.png)" alt="Фото статьи">
+        <div class="article__container">
+          <div class="article__date"></div>
+          <h3 class="article__title"></h3>
+          <p class="article__text"></p>
+          <p class="article__source"></p>
+        </div>
+      </a>
+    </div>
+  </template> -->
+
+
+
 </body>
 
 </html>

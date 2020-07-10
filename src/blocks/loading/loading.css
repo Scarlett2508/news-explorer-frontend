@@ -4,9 +4,12 @@
 @import url(./__search/loading__search.css);
 @import url(./__text/loading__text.css);
 @import url(./__title/loading__title.css);
+@import url(./__articles/loading__articles.css);
+@import url(./__button/loading__button.css);
+@import url(./__search-results/loading__search-results.css);
 
 .loading {
-  height: 282px;
+  background: #F5F6F7;
   text-align: center;
-  display: none;
+  /* display: none; */
 }

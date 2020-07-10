@@ -6,6 +6,7 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/loading/loading.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/preloader/preloader.css);
 
 body {
   background-color: #fff;
