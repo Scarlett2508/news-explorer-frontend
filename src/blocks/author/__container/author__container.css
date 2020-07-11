@@ -4,3 +4,15 @@
   margin-top: 80px;
   margin-bottom: 80px;
 }
+
+@media screen and (max-width: 1024px) {
+  .author__container {
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .author__container {
+    flex-direction: column;
+  }
+}

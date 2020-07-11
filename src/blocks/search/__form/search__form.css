@@ -3,3 +3,11 @@
   flex-direction: row;
   position: relative;
 }
+
+@media screen and (max-width: 635px) {
+  .search__form{
+    display: flex;
+    flex-direction: column;
+
+  }
+}

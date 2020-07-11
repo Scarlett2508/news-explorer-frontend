@@ -5,3 +5,17 @@
   margin-left: 104px;
   border-radius: 300px;
 }
+
+@media screen and (max-width: 1024px) {
+  .author__pic {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .author__pic {
+    width: 200px;
+    height: 200px;
+  }
+}

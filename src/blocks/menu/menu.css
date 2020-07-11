@@ -8,3 +8,13 @@
   justify-content: space-around;
 
 }
+
+
+@media screen and (max-width: 635px) {
+  .menu {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    width: 50%;
+  }
+}

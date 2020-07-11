@@ -8,3 +8,10 @@
   width: 545px;
   text-align: left;
 }
+
+@media screen and (max-width: 600px) {
+  .search__text {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+}

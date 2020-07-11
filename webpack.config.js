@@ -1,11 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-
-const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -29,18 +28,21 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: '../' },
+          },
+          'css-loader', 'postcss-loader',
+        ],
       },
       {
-        test: /\.(gif|png|jpe?g|ico|svg)$/i,
+        test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
-          'file-loader?name=./images/[name].[ext]',
+          'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
           {
             loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true,
-              disable: true,
-            },
+            options: {},
           },
         ],
       },
@@ -64,5 +66,8 @@ module.exports = {
       canPrint: true,
     }),
     new WebpackMd5Hash(),
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  })
   ],
 };

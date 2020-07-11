@@ -5,3 +5,9 @@
   margin: 0 104px;
   height: 80px;
 }
+
+@media screen and (max-width: 635px) {
+  .header__container {
+    margin: 0 50px;
+  }
+}

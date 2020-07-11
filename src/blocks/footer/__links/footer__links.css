@@ -3,3 +3,9 @@
   justify-content: space-around;
   width: 408px;
 }
+
+@media screen and (max-width: 440px) {
+  .footer__links {
+    width: 300px;
+  }
+}

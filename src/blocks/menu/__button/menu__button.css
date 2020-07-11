@@ -13,3 +13,11 @@
 .menu__button:last-of-type {
   display: none;
 }
+
+@media screen and (max-width: 635px) {
+  .menu__button {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+  }
+}

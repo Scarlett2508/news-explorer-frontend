@@ -9,3 +9,11 @@
   flex-direction: column;
   margin: auto;
 }
+
+@media screen and (max-width: 600px) {
+  .search {
+    margin: 30px auto;
+    width: 90%;
+    justify-content: center;
+  }
+}
