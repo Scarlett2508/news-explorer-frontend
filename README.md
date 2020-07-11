@@ -2,7 +2,7 @@
 ## Дипломная работа, часть с фронтендом
 ### v1.0.0
 
-#### 
+#### https://scarlett2508.github.io/news-explorer-frontend/
 
 ##### Установка: 
 ###### 1. Для клонирования используйте git clone https://github.com/Scarlett2508/news-explorer-frontend.git.
