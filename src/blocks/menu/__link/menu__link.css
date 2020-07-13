@@ -27,3 +27,9 @@
 .menu__link_black {
   color: black;
 }
+
+.menu__link_articles-loggedin {
+  display: block;
+  color: black;
+  margin: auto;
+}

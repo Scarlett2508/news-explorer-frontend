@@ -5,6 +5,7 @@
 @import url(./__source/article__source.css);
 @import url(./__text/article__text.css);
 @import url(./__title/article__title.css);
+@import url(./__addition/article__addition.css);
 
 .article {
   position: relative;
@@ -16,5 +17,8 @@
   flex-direction: column;
 }
 
+.article__loggedin {
+  border: none;
+}
 
 

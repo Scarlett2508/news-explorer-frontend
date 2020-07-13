@@ -13,3 +13,7 @@
   margin-top: 3px;
 
 }
+
+.menu__button_exit_black {
+  border: 1px solid black;
+}

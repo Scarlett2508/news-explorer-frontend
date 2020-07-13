@@ -4,6 +4,5 @@
 @import url(./__title/top__title.css);
 
 .top {
-  width: 100%;
-  margin: 40px auto 62px 104px;
+  margin: 40px 0 62px 104px;
 }

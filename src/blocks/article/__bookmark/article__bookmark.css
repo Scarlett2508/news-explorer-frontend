@@ -15,3 +15,11 @@
 .article__bookmark_pressed {
   background-image: url(../../../images/Rectangle\ blue.png);
 }
+
+.article__bookmark_delete {
+  background-image: url(../../../images/trash.png);
+}
+
+.article__bookmark_delete-pressed {
+  background-image: url(../../../images/trashblack.png);
+}
