@@ -9,3 +9,9 @@
     width: 300px;
   }
 }
+@media screen and (max-width: 320px) {
+  .footer__links {
+    margin: auto;
+    padding-left: 10px;
+  }
+}

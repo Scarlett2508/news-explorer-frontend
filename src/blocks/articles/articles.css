@@ -6,6 +6,13 @@
 
 }
 
+.articles_saved {
+  background: #e5e5e5;
+  margin: 0;
+  padding: 62px 102px 62px 102px;
+
+}
+
 @media screen and (max-width: 900px) {
   .articles {
     grid-template-columns: repeat(2, 1fr);

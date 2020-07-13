@@ -1,0 +1,9 @@
+@import url(./__description/top__description.css);
+@import url(./__subtitle/top__subtitle.css);
+@import url(./__text/top__text.css);
+@import url(./__title/top__title.css);
+
+.top {
+  width: 100%;
+  margin: 40px auto 62px 104px;
+}

@@ -9,6 +9,7 @@
 @import url(../blocks/preloader/preloader.css);
 @import url(../blocks/article/article.css);
 @import url(../blocks/articles/articles.css);
+@import url(../blocks/top/top.css);
 
 body {
   background-color: #fff;
