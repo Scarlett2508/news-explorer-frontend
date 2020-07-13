@@ -7,11 +7,16 @@
 @media screen and (max-width: 440px) {
   .footer__links {
     width: 300px;
+    padding-left: 0px;
+    flex-wrap: wrap;
+    display: block;
+    width: 100%;
   }
 }
-@media screen and (max-width: 320px) {
-  .footer__links {
-    margin: auto;
-    padding-left: 10px;
+
+  @media screen and (max-width: 320px) {
+    .footer__links {
+      margin: auto;
+      padding-left: 10px;
+    }
   }
-}

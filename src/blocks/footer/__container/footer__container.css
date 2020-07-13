@@ -7,7 +7,7 @@
   margin-right: 106px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   .footer__container {
     flex-direction: column-reverse;
   }
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 400px) {
   .footer__container {
-    margin: auto;
+    flex-wrap: wrap;
   }
 }
 

@@ -33,3 +33,9 @@
   color: black;
   margin: auto;
 }
+
+@media screen and (max-width: 400px) {
+  .menu__link {
+    display: none;
+  }
+}

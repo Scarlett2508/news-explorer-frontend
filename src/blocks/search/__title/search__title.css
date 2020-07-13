@@ -8,3 +8,10 @@
   width: 608px;
   text-align: left;
 }
+
+@media screen and (max-width: 400px) {
+  .search__title {
+    font-size: 40px;
+  line-height: 34px;
+  }
+}
