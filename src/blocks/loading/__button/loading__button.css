@@ -14,3 +14,7 @@
   outline: none;
   margin: 3% auto 6% auto;
 }
+
+.loading__button:hover {
+  background: #F5F6F7;
+}

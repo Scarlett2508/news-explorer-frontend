@@ -12,14 +12,18 @@
   cursor: pointer;
 }
 
+.article__bookmark:hover {
+background-image: url('../../../images/bookmarkBlack.png');
+}
+
 .article__bookmark_pressed {
-  background-image: url(../../../images/Rectangle\ blue.png);
+  background-image: url('../../../images/Rectangle\ blue.png');
 }
 
 .article__bookmark_delete {
-  background-image: url(../../../images/trash.png);
+  background-image: url('../../../images/trash.png');
 }
 
-.article__bookmark_delete-pressed {
-  background-image: url(../../../images/trashblack.png);
+.article__bookmark_delete:hover {
+  background-image: url('../../../images/trashblack.png');
 }

@@ -42,3 +42,7 @@
   line-height: 40px;
   color: #000000;
 }
+
+.article__addition-remove-login {
+  left: calc(100% - 280px);
+}
