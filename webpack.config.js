@@ -50,10 +50,19 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      inject: true,
       template: './src/index.html',
+      filename: './index.html',
+      chunks: ['main'],
     }),
+    // new HtmlWebpackPlugin({
+    //   inject: true,
+    //   template: './src/page/loggedin/loggedin.html',
+    //   filename: './loggedin.html',
+    //   chunks: ['loggedin'],
+    // }),
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
+      filename: 'index.[contenthash].css',
     }),
     new CleanWebpackPlugin(),
 
