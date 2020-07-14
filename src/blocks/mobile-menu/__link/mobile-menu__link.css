@@ -1,7 +1,7 @@
 .mobile-menu__link {
   text-decoration: none;
   cursor: pointer;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -16,7 +16,7 @@
 .mobile-menu__link_exit {
   text-decoration: none;
   cursor: pointer;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   color: #FFF;
 }
