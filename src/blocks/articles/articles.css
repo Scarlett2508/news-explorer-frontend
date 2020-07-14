@@ -20,6 +20,12 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .articles {
+    margin: 64px 90px 0 90px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .articles {
     grid-template-columns: repeat(1, 1fr);

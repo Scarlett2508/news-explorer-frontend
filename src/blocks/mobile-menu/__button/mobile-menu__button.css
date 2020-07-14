@@ -1,0 +1,12 @@
+.mobile-menu__button {
+  text-decoration: none;
+}
+
+.mobile-menu__button_exit {
+  border: 1px solid #fff;
+  padding: 9px 13px;
+  border-radius: 100px;
+  margin-right: 13%;
+  margin-top: 5%;
+  text-align: center;
+}

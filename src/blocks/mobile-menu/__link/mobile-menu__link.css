@@ -1,0 +1,22 @@
+.mobile-menu__link {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 56px;
+  color: #FFFFFF;
+}
+
+.mobile-menu__link_auth {
+  display: none;
+}
+
+.mobile-menu__link_exit {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #FFF;
+}
