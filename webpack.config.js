@@ -7,6 +7,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const cssnano = require('cssnano');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -30,10 +32,12 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          {
+          (isDev ? { loader: 'style-loader' } : {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '../' },
-          },
+            options: {
+              publicPath: './',
+            },
+          }),
           'css-loader', 'postcss-loader',
         ],
       },

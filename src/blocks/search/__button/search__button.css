@@ -20,10 +20,17 @@
 
 .search__button:hover {
   background: #347EFF;
+  color: #FFFFFF;
 }
 
 .search__button:active {
+  background: #2F71E5;
+  color: #FFFFFF;;
+}
+
+.search__button_pressed:active {
   background: #2A65CC;
+  border: none;
 }
 
 @media screen and (max-width: 635px) {
