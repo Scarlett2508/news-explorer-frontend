@@ -1,0 +1,18 @@
+.menu__button_addition {
+  display: none;
+}
+
+@media screen and (max-width: 445px) {
+  .menu__button_addition {
+    display: block;
+    cursor: pointer;
+    outline: none;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .menu__link_addition {
+    height: 24px;
+  }
+}

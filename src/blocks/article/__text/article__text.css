@@ -8,3 +8,10 @@
   text-align: left;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 630px) {
+  .article__text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}

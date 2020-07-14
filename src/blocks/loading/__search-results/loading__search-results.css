@@ -8,3 +8,11 @@
   text-align: left;
   margin-left: 104px;
 }
+
+@media screen and (max-width: 500px) {
+  .loading__search-results {
+    font-size: 30px;
+    line-height: 34px;
+    margin-left: 3%;
+  }
+}

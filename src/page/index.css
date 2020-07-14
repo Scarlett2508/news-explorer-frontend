@@ -10,6 +10,7 @@
 @import url(../blocks/article/article.css);
 @import url(../blocks/articles/articles.css);
 @import url(../blocks/top/top.css);
+@import url(../vendor/normalize.css);
 
 body {
   background-color: #fff;

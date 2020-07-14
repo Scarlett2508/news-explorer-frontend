@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const cssnano = require('cssnano');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
 
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=./vendor/[name].[ext]',
+        loader: 'file-loader?name=./vendor/fonts/[name].[ext]',
       },
       {
         test: /\.css$/i,
@@ -68,7 +69,7 @@ module.exports = {
 
     new OptimizeCssAssetsWebpackPlugin({
       assetNameRegExp: /\.css$/g,
-      cssProcessor: require('cssnano'),
+      cssProcessor: cssnano,
       cssProcessorPluginOptions: {
         preset: ['default'],
       },

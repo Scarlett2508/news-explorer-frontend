@@ -16,7 +16,6 @@
 @media screen and (max-width: 900px) {
   .articles {
     grid-template-columns: repeat(2, 1fr);
-    margin: 32px auto 0 auto;
     grid-gap: 8px 8px;
   }
 }
@@ -24,7 +23,7 @@
 @media screen and (max-width: 500px) {
   .articles {
     grid-template-columns: repeat(1, 1fr);
-    margin: 24px auto 0 auto;
+    margin: 24px 3px 0 3px;
     grid-gap: 10px 10px;
   }
 }

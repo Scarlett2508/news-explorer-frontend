@@ -1,6 +1,7 @@
 @import url(_auth/menu__button_auth.css);
 @import url(_saved-articles/menu__button_saved-articles.css);
 @import url(./_exit/menu__button_exit.css);
+@import url(./_addition/menu__button_addition.css);
 
 .menu__button {
   font-family: 'Roboto';
@@ -19,5 +20,10 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
+  }
+}
+@media screen and (max-width: 445px) {
+  .menu__button {
+    display: none;
   }
 }

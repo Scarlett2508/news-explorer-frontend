@@ -34,7 +34,7 @@
   margin: auto;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 445px) {
   .menu__link {
     display: none;
   }
