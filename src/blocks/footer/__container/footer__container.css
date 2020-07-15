@@ -13,9 +13,11 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
   .footer__container {
     flex-wrap: wrap;
+    margin-left: 3%;
+    margin-right: 3%;
   }
 }
 

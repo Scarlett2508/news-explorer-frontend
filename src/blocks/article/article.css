@@ -21,7 +21,14 @@
   border: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 750px) {
+  .article {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
   .article {
     width: 98%;
     margin: auto;
