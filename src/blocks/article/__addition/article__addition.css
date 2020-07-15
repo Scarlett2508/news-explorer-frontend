@@ -1,0 +1,48 @@
+.article__addition {
+  background: #FFF;
+  border-radius: 10px;
+}
+
+.article__addition-keyword {
+  position: absolute;
+  background: #FFF;
+  border-radius: 10px;
+  left: calc(100% - 380px);
+  width: 88px;
+  height: 40px;
+  top: 24px;
+}
+
+.article__addition-remove {
+  background: #FFF;
+  padding: 0 10px;
+  box-shadow: 0px 10px 22px rgba(59, 74, 116, 0.1);
+  border-radius: 10px;
+  position: absolute;
+  left: calc(100% - 230px);
+  top: 24px;
+  height: 40px;
+}
+
+.article__keyword {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 40px;
+  padding-left: 17%;
+  color: #000000;
+}
+
+.article__remove {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 40px;
+  color: #000000;
+}
+
+.article__addition-remove-login {
+  left: calc(100% - 280px);
+}

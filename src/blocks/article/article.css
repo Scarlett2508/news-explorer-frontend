@@ -1,0 +1,42 @@
+@import url(./__date/article__date.css);
+@import url(./__bookmark/article__bookmark.css);
+@import url(./__image-container/article__image-container.css);
+@import url(./__pic/article__pic.css);
+@import url(./__source/article__source.css);
+@import url(./__text/article__text.css);
+@import url(./__title/article__title.css);
+@import url(./__addition/article__addition.css);
+
+.article {
+  position: relative;
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 15px;
+  border: 1px solid #FFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.article__loggedin {
+  border: none;
+}
+
+@media screen and (max-width: 750px) {
+  .article {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .article {
+    width: 85%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .article {
+    width: 98%;
+  }
+}

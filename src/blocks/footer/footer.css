@@ -1,0 +1,11 @@
+@import url(./__container/footer__container.css);
+@import url(./__copyright/footer__copyright.css);
+@import url(./__link/footer__link.css);
+@import url(./__links/footer__links.css);
+@import url(./__list-link/footer__list-link.css);
+
+.footer {
+  height: 80px;
+  background-color: #FFF;
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+.loading__button {
+  box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
+  border: 1px solid #E6E8EB;
+  background: #FFF;
+  border-radius: 80px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 288px;
+  height: 64px;
+  cursor: pointer;
+  outline: none;
+  margin: 3% auto 6% auto;
+}
+
+.loading__button:hover {
+  background: #F5F6F7;
+}

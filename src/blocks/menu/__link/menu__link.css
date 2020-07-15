@@ -1,0 +1,41 @@
+.menu__link {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  color: #FFF;
+  margin: auto;
+}
+
+.menu__link_articles {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  color: #FFF;
+  display: none;
+}
+
+.menu__link_exit {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  color: #FFF;
+}
+
+.menu__link_black {
+  color: black;
+}
+
+.menu__link_articles-loggedin {
+  display: block;
+  color: black;
+  margin: auto;
+}
+
+@media screen and (max-width: 445px) {
+  .menu__link {
+    display: none;
+  }
+}

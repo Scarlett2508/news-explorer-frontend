@@ -1,0 +1,31 @@
+.footer__links {
+  display: flex;
+  justify-content: space-around;
+  width: 408px;
+}
+
+@media screen and (max-width: 440px) {
+  .footer__links {
+
+    margin-left: 3%;
+    margin-right: 3%;
+    display: block;
+    width: 300px;
+    columns: 2;
+    padding-left: 0px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .footer__links {
+
+    width: 280px;
+  }
+}
+
+  @media screen and (max-width: 320px) {
+    .footer__links {
+      margin: auto;
+      padding-left: 10px;
+    }
+  }

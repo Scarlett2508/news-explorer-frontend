@@ -1,0 +1,30 @@
+.article__bookmark {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  background-image: url('../../../images/Rectangle\ 8.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.article__bookmark:hover {
+background-image: url('../../../images/bookmarkBlack.png');
+}
+
+.article__bookmark_pressed {
+  background-image: url('../../../images/Rectangle\ blue.png');
+}
+
+.article__bookmark_delete {
+  background-image: url('../../../images/trash.png');
+}
+
+.article__bookmark_delete:hover {
+  background-image: url('../../../images/trashblack.png');
+}

@@ -1,0 +1,30 @@
+@import url(./__button/menu__button.css);
+@import url(./__link/menu__link.css);
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  width: auto;
+}
+
+
+
+
+@media screen and (max-width: 635px) {
+  .menu {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    width: 50%;
+
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .menu {
+    padding-left: 0px
+
+  }
+}

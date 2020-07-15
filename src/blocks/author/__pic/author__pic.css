@@ -1,0 +1,27 @@
+.author__pic {
+  width: 464px;
+  height: 464px;
+  margin-right: 56px;
+  margin-left: 104px;
+  border-radius: 300px;
+}
+
+@media screen and (max-width: 1024px) {
+  .author__pic {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .author__pic {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .author__pic {
+    margin: auto;
+  }
+}
+

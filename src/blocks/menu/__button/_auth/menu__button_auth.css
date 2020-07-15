@@ -1,0 +1,12 @@
+.menu__button_auth {
+  border: 1px solid #fff;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 100px;
+}
+
+@media screen and (max-width: 445px) {
+  .menu__button_auth {
+    border: none;
+  }
+}

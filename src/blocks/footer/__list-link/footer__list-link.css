@@ -1,0 +1,19 @@
+.footer__list-link {
+
+  list-style: none;
+  color: #1A1B22;
+}
+
+
+@media screen and (max-width: 440px) {
+  .footer__list-link {
+    width: auto;
+    margin-bottom: 15%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .footer__list-link_social {
+    text-align: right;
+  }
+}

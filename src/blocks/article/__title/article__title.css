@@ -1,0 +1,17 @@
+.article__title {
+  font-family: 'Roboto Slab', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1A1B22;
+  margin-left: 5%;
+  text-align: left;
+}
+
+@media screen and (max-width: 630px) {
+  .article__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
