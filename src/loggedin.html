@@ -8,8 +8,8 @@
   <meta name="description" content="Дипломная работа. Поиск новостей по ключевым словам">
   <meta name="author" content="Алевтина Федина">
   <title>News Explorer</title>
-  <link rel="icon" href="/src/images/favicon.png" type="image/png">
-  <link rel="stylesheet" href="./page/loggedin.css">
+  <link rel="icon" href="<%=require('./images/Group.png').default %>" type="image/png">
+  <!-- <link rel="stylesheet" href="./page/loggedin.css"> -->
 </head>
 
 <body>
@@ -111,12 +111,15 @@
       <div class="footer__container">
         <p class="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>
         <ul class="footer__links">
-          <a class="footer__link" href="#">Главная</a>
-          <a class="footer__link" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
-          <a class="footer__link" href="https://github.com/Scarlett2508" target="_blank"><img
-              src="<%=require('./images/github.png').default %>" alt="GitHub"></a>
-          <a class="footer__link" href="https://www.facebook.com/profile.php?id=100004391015304" target="_blank"><img
-              src="<%=require('./images/fb.png').default %>" alt="Facebook"></a>
+          <li class="footer__list-link"><a class="footer__link" href="index.html">Главная</a></li>
+          <li class="footer__list-link"><a class="footer__link" href="https://praktikum.yandex.ru"
+              target="_blank">Яндекс.Практикум</a></li>
+          <li class="footer__list-link footer__list-link_social"> <a class="footer__link"
+              href="https://github.com/Scarlett2508" target="_blank"><img
+                src="<%=require('./images/github.png').default %>" alt="GitHub"></a></li>
+          <li class="footer__list-link footer__list-link_social"><a class="footer__link"
+              href="https://www.facebook.com/profile.php?id=100004391015304" target="_blank"><img
+                src="<%=require('./images/fb.png').default %>" alt="Facebook"></a></li>
         </ul>
       </div>
     </footer>

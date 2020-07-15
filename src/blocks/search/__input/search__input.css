@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 635px) {
   .search__input {
-    width: 95%;
+    width: 100%;
     text-align: center;
     height: 56px;
     margin-bottom: 3%;

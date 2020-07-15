@@ -30,7 +30,13 @@
 
 @media screen and (max-width: 650px) {
   .article {
-    width: 98%;
+    width: 85%;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .article {
+    width: 98%;
   }
 }

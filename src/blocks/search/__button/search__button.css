@@ -21,6 +21,7 @@
 .search__button:hover {
   background: #347EFF;
   color: #FFFFFF;
+
 }
 
 .search__button:active {
@@ -39,6 +40,6 @@
     height: 55px;
     left: 0;
     top: 0;
-    width: 95%;
+    width: 100%;
   }
 }
