@@ -2,6 +2,7 @@
 @import url(./__back/mobile-menu__back.css);
 @import url(./__button/mobile-menu__button.css);
 @import url(./__link/mobile-menu__link.css);
+@import url(./_is-opened/mobile-menu_is-opened.css);
 
 .mobile-menu {
   display: none;
