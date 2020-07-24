@@ -43,6 +43,14 @@
   color: #000000;
 }
 
+.article__remove_is-closed {
+  display: none;
+}
+
+.article__remove_is-opened {
+  display: inline-block;
+}
+
 .article__addition-remove-login {
   left: calc(100% - 280px);
 }

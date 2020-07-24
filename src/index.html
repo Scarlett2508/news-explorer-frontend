@@ -32,24 +32,28 @@
           </ul>
         </div>
 
-        <!-- <header class="mobile-menu">
+        <header class="mobile-menu">
           <div class="header__container">
             <p class="header__logo header__logo_top">NewsExplorer</p>
-            <img src="<%=require('./images/back.png').default %>" alt="back" class="mobile-menu__back">
+            <button class="mobile-menu_is-opened">
+              <img src="<%=require('./images/back.png').default %>" alt="back" class="mobile-menu__back">
+            </button>
           </div>
           <ul class="mobile-menu__container">
-            <li class="mobile-menu__container mobile-menu__button"><a href="index.html" class="mobile-menu__link">Главная</a></li>
-            <li class="mobile-menu__button"><a href="loggedin.html"
-                class="mobile-menu__link">Сохранённые
+            <li class="mobile-menu__container mobile-menu__button"><a href="index.html"
+                class="mobile-menu__link">Главная</a></li>
+            <li class="mobile-menu__button"><a href="loggedin.html" class="mobile-menu__link">Сохранённые
                 статьи</a></li>
-            <li class="mobile-menu__button"><a href="#" class="mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
+            <li class="mobile-menu__button"><a href="#"
+                class="mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
 
             <li class="mobile-menu__button_exit"><a href="#" class="mobile-menu__link mobile-menu__link_exit">Грета</a>
-              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход" class=" mobile-menu__button mobile-menu__button_exit-pic">
+              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход"
+                class=" mobile-menu__button mobile-menu__button_exit-pic">
             </li>
           </ul>
 
-        </header> -->
+        </header>
 
         <div class="search">
           <h2 class="search search__title">Что в мире творится?</h2>
@@ -72,40 +76,23 @@
           <h2 class="loading__title">Ничего не найдено</h2>
           <p class="loading__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
-        <div class="loading__articles">
-          <h2 class="loading__search-results">Результаты поиска</h2>
-          <div class="articles">
-            <div class="article">
-              <div class="article__image-container">
-                <img class="article__pic" src="<%=require('./images/image_08.png').default %>" alt="Фотография новости">
-                <div class="article__bookmark"></div>
-              </div>
-              <span class="article__date">2 августа, 2019</span>
-              <h3 class="article__title">Национальное достояние – парки</h3>
-              <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-                складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться
-                к природе.</p>
-              <a class="article__source" href="#">Лента.ру</a>
+        <!-- Образец статьи -->
+        <template class="article_template">
+          <div class="article" data-keyword>
+            <div class="article__image-container">
+              <img class="article__pic" alt="Фотография новости">
+              <div class="article__addition article__addition-remove article__addition-remove-login"><span
+                  class="article__remove article__remove_is-closed">Войдите, чтобы сохранять статьи</span></div>
+              <div class="article__bookmark article__bookmark_pressed"></div>
             </div>
-
-            <template class="article">
-              <div class="article__image-container">
-                <img class="article__pic" alt="Фотография новости">
-                <div class="article__addition article__addition-remove article__addition-remove-login"><span
-                    class="article__remove">Войдите, чтобы сохранять статьи</span></div>
-                <div class="article__bookmark article__bookmark_pressed"></div>
-              </div>
-              <span class="article__date"></span>
-              <h3 class="article__title"></h3>
-              <p class="article__text"></p>
-              <a class="article__source"></a>
-            </template>
-
-
+            <span class="article__date"></span>
+            <h3 class="article__title"></h3>
+            <p class="article__text"></p>
+            <a class="article__source"></a>
           </div>
-          <button class="loading__button">Показать ещё</button>
-        </div>
+        </template>
 
+        <button class="loading__button">Показать ещё</button>
 
       </section>
 
@@ -162,7 +149,7 @@
           minlength="2" maxlength="20" placeholder="Имя" required>
         <span class="popup__error">Длина имени минимум 2 символа</span>
         <span class="popup__error signup__error">Такой пользователь уже есть</span>
-        <button type="submit" class="popup__button">Зарегистрироваться</button>
+        <button type="submit" class="popup__button popup__button_disabled" disabled>Зарегистрироваться</button>
         <div class="popup__down">
           <span class="popup__text">или &zwnj;</span>
           <span class="popup__link">Войти</span>
@@ -185,7 +172,7 @@
           minlength="6" maxlength="30" required>
         <span class="popup__error">Неправильный пароль</span>
         <span class="popup__error signup__error">Такой пользователь уже есть</span>
-        <button type="submit" class="popup__button">Войти</button>
+        <button type="submit" class="popup__button popup__button_disabled" disabled>Войти</button>
         <div class="popup__down">
           <span class="popup__text">или &zwnj;</span>
           <span class="popup__link">Зарегистрироваться</span>

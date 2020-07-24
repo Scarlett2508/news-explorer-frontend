@@ -20,7 +20,7 @@ export default class NewsCard {
 
   create() {
     this.elem = document.createElement('div');
-    this.elem.classList.add('card');
+    this.elem.classList.add('article');
     this.elem.dataset.id = this.id;
     const template = `<div class="article">
       div class="article__image-container">

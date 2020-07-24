@@ -1,12 +1,16 @@
-export default class MainApi {
-  constructor(url) {
-    this.url = url;
-    this.token = token;
+import Api from './Api';
+
+export default class MainApi extends Api {
+  constructor(options) {
+    super(options);
+    this.url = options.url;
+    this.token = options.token;
   }
 
   signup(data) {
     return fetch(`${this.url}signup`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,6 +29,7 @@ export default class MainApi {
   signin(data) {
     return fetch(`${this.url}signin`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -39,8 +44,16 @@ export default class MainApi {
       });
   }
 
+  logout() {
+    return fetch(`${this.url}logout`, {
+      method: 'POST',
+      credentials: 'include'
+    }).then(res => res.json());
+  }
+
   getUser() {
     return fetch(`${this.url}users/me`, {
+      method: 'GET',
       headers: {
         authorization: `Bearer ${this.token}`,
       },
@@ -76,6 +89,7 @@ export default class MainApi {
 
   getArticles() {
     return fetch(`${this.url}articles`, {
+      method: 'GET',
       headers: {
         authorization: `Bearer ${this.token}`,
       },

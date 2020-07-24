@@ -1,21 +1,21 @@
 export default class NewsCardList {
-  constructor(element, createCard, api, userInfo) {
+  constructor(newsApi, element, createCard, userInfo) {
     this.createCard = createCard;
     this.element = element;
-    this.api = api;
+    this.newsApi = newsApi;
     this.userInfo = userInfo;
   }
 
-  addArticle(elem) {
+  addCard(elem) {
     this.element.appendChild(elem);
   }
 
   render() {
-    this.api.loadArticles()
-      .then((articles) => {
-        articles.forEach((item) => {
-          const article = this.createArticle(item.name, item.link, item._id, item.isMine);
-          this.addArtucle(article.create());
+    this.newsApi.loadCards()
+      .then((cards) => {
+        cards.forEach((item) => {
+          const card = this.createCard(item.name, item.link, item._id, item.isMine);
+          this.addCard(card.create());
         });
       })
       .catch((err) => {
