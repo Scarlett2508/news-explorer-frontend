@@ -27,7 +27,7 @@ export default class NewsCard {
         <img class="article__pic" alt="Фотография новости">
         <div class="article__addition article__addition-remove article__addition-remove-login"><span
           class="article__remove">Войдите, чтобы сохранять статьи</span></div>
-          <div class="article__bookmark article__bookmark_pressed"></div>
+          <div class="article__bookmark"></div>
         </div>
         <span class="article__date"></span>
         <h3 class="article__title"></h3>
@@ -40,8 +40,8 @@ export default class NewsCard {
   }
 
   eventListeners() {
-    this.likeButton = this.elem.querySelector('.place-card__like-icon');
-    this.likeButton.addEventListener('click', this.like.bind(this));
+    this.saveButton = this.elem.querySelector('.article__bookmark');
+    this.saveButton.addEventListener('click', this.save.bind(this));
 
     this.removeButton = this.elem.querySelector('.place-card__delete-icon');
     this.removeButton.addEventListener('click', this.remove.bind(this));
