@@ -3,6 +3,8 @@ import './page/index.css';
 import MainApi from './js/api/MainApi';
 import NewsApi from './js/api/NewsApi';
 
+import Popup from './js/components/Popup';
+
 import ErrorHandler from './js/utils/errorHandler';
 
 import config from './js/constants/config';
