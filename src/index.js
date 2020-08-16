@@ -10,6 +10,7 @@ import ErrorHandler from './js/utils/errorHandler';
 import config from './js/constants/config';
 
 const errorElem = document.querySelector('.error-text');
+
 const errHandler = new ErrorHandler(errorElem);
 
 const {
@@ -20,19 +21,24 @@ const mainApi = new MainApi(MAINAPI_URL);
 const newsApi = new NewsApi(NEWSAPI_URL, NEWSAPI_KEY, PAGE_SIZE, NEWSAPI_DAYS);
 
 // popup
+const popupAuth = document.querySelector('.menu__button_auth');
+const popupEnter = document.querySelector('.popup__link');
+const popupAuthLink = document.querySelector('.popup__link-auth');
 
-const popupEdit = document.querySelector('.edit__button');
-const popupButton = document.querySelector('.user-info__button');
+// const popupEdit = document.querySelector('.edit__button');
+// const popupButton = document.querySelector('.user-info__button');
 
-const popup = new PopupPlace(document.querySelector('.popup__picture'), cardList, card);
-
-const popupForEdit = new PopupProfile(document.querySelector('.popup__edit'), userInfo, document.querySelector('.popup__profile-form'));
+const popup = new Popup(document.querySelector('.popup__signup'));
+const popupEnterLink = new Popup(document.querySelector('.popup__login'));
 
 // popup.open
 
-popupButton.addEventListener('click', popup.open);
-popupEdit.addEventListener('click', popupForEdit.open);
+popupAuth.addEventListener('click', popup.open);
+popupEnter.addEventListener('click', popup.close);
+popupEnter.addEventListener('click', popupEnterLink.open);
+popupAuthLink.addEventListener('click', popupEnterLink.close);
+popupAuthLink.addEventListener('click', popup.open);
 
 // mobile-menu
 
-document.querySelector('.mobil-menu').classList.remove('mobil-menu_is-opened');
+// document.querySelector('.mobil-menu').classList.remove('mobil-menu_is-opened');
