@@ -1,6 +1,8 @@
+import config from '../constants/config';
+
 export default class Api {
-  constructor(options) {
-    this.url = options.url;
+  constructor() {
+    this.url = config.MAINAPI_URL;
   }
 
   saveDependencies(dependencies) {

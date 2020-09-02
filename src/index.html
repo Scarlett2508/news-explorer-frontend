@@ -9,6 +9,7 @@
   <meta name="author" content="Алевтина Федина">
   <title>News Explorer</title>
   <link rel="icon" href="<%=require('./images/Group.png').default %>" type="image/png">
+  <link rel="stylesheet" href="./page/index.css">
 </head>
 
 <body>
@@ -32,7 +33,7 @@
           </ul>
         </div>
 
-        <header class="mobile-menu">
+        <!-- <header class="mobile-menu">
           <div class="header__container">
             <p class="header__logo header__logo_top">NewsExplorer</p>
             <button class="mobile-menu_is-opened">
@@ -53,6 +54,23 @@
             </li>
           </ul>
 
+        </header> -->
+
+        <header class="mobile-menu">
+          <input id="menu__toggle" type="checkbox" />
+          <p class="header__logo header__logo_top">NewsExplorer</p>
+          <label class="menu__btn" for="menu__toggle">
+            <span></span>
+          </label>
+          <ul class="menu__box">
+            <li class="mobile-menu__button"><a class="menu__item" href="index.html" class="mobile-menu__link">Главная</a></li>
+            <li class="mobile-menu__button"><a class="menu__item" href="loggedin.html" class="mobile-menu__link">Сохранённые
+              статьи</a></li>
+            <li class="mobile-menu__button"><a class="menu__item" href="#" class="mobile-menu__link">Авторизоваться</a></li>
+            <li class="mobile-menu__button"><a class="mobile-menu__link mobile-menu__link_exit">Грета</a>
+              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход"
+                class=" mobile-menu__button mobile-menu__button_exit-pic"></li>
+          </ul>
         </header>
 
         <div class="search">
@@ -149,7 +167,8 @@
           minlength="2" maxlength="20" placeholder="Имя" required>
         <span class="popup__error">Длина имени минимум 2 символа</span>
         <span class="popup__error signup__error">Такой пользователь уже есть</span>
-        <button type="submit" class="popup__button popup__button_disabled" disabled>Зарегистрироваться</button>
+        <button type="submit"
+          class="popup__button popup__button_disabled popup__button_auth">Зарегистрироваться</button>
         <div class="popup__down">
           <span class="popup__text">или &zwnj;</span>
           <span class="popup__link">Войти</span>
@@ -172,7 +191,7 @@
           minlength="6" maxlength="30" required>
         <span class="popup__error">Неправильный пароль</span>
         <span class="popup__error signup__error">Такой пользователь уже есть</span>
-        <button type="submit" class="popup__button popup__button_disabled" disabled>Войти</button>
+        <button type="submit" class="popup__button popup__button_disabled popup__button_enter">Войти</button>
         <div class="popup__down">
           <span class="popup__text">или &zwnj;</span>
           <span class="popup__link popup__link-auth">Зарегистрироваться</span>

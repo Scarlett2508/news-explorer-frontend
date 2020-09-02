@@ -1,23 +1,20 @@
 import Api from './Api';
+import config from '../constants/config';
 
 export default class MainApi extends Api {
-  constructor(options) {
-    super(options);
-    this.url = options.url;
-    this.token = options.token;
-  }
+  signup(options) {
+    const { name, email, password } = options;
 
-  signup(data) {
-    return fetch(`${this.url}signup`, {
+    return fetch(`${config.MAINAPI_URL}/signup`, {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify({
-        name: data.name.value,
-        email: data.email.value,
-        password: data.password.value,
+        name,
+        email,
+        password,
       }),
     })
       .then((res) => this.parseResponce(res))
@@ -26,16 +23,14 @@ export default class MainApi extends Api {
       });
   }
 
-  signin(data) {
-    return fetch(`${this.url}signin`, {
+  signin(options) {
+    const { email, password } = options;
+    return fetch(`${config.MAINAPI_URL}/signin`, {
       method: 'POST',
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({
-        email: data.email.value,
-        password: data.password.value,
+        email,
+        password,
       }),
     })
       .then((res) => this.parseResponce(res))
@@ -45,14 +40,15 @@ export default class MainApi extends Api {
   }
 
   logout() {
-    return fetch(`${this.url}logout`, {
+    return fetch(`${this.url}/logout`, {
       method: 'POST',
-      credentials: 'include'
-    }).then(res => res.json());
+      credentials: 'include',
+    })
+      .then((res) => res.json());
   }
 
   getUser() {
-    return fetch(`${this.url}users/me`, {
+    return fetch(`${config.MAINAPI_URL}/users/me`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${this.token}`,
@@ -65,7 +61,7 @@ export default class MainApi extends Api {
   }
 
   saveArticle(article) {
-    return fetch(`${this.url}articles`, {
+    return fetch(`${config.MAINAPI_URL}/articles`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +84,7 @@ export default class MainApi extends Api {
   }
 
   getArticles() {
-    return fetch(`${this.url}articles`, {
+    return fetch(`${config.MAINAPI_URL}/articles`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${this.token}`,
@@ -101,7 +97,7 @@ export default class MainApi extends Api {
   }
 
   deleteArticle(articleId) {
-    return fetch(`${this.url}articles/${articleId}`, {
+    return fetch(`${config.MAINAPI_URL}/articles/${articleId}`, {
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${this.token}`,
