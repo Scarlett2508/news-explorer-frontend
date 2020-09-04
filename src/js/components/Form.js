@@ -17,19 +17,19 @@ export default class FormValidator {
     errorElement.textContent = element.validationMessage;
   }
 
-  setSubmitButtonState(buttonElem) {
-    if (input.length !== 0) {
-      buttonElem.setAttribute('disabled', true);
-      buttonElem.classList.add('popup__button_disabled');
-    } else {
-      buttonElem.removeAttribute('disabled');
-      buttonElem.classList.remove('popup__button_disabled');
-    }
-  }
+  // setSubmitButtonState(buttonElem) {
+  //   if (input.length !== 0) {
+  //     buttonElem.setAttribute('disabled', true);
+  //     buttonElem.classList.add('popup__button_disabled');
+  //   } else {
+  //     buttonElem.removeAttribute('disabled');
+  //     buttonElem.classList.remove('popup__button_disabled');
+  //   }
+  // }
 
   setEventListeners() {
     const button = document.querySelector('.popup__button');
-    const buttonEdit = document.querySelector('.popup__button_edit');
+    const buttonEdit = document.querySelector('.popup__button_auth');
     this.form = document.querySelector('.popup__form');
     this.formForEdit = document.querySelector('.popup__profile-form');
     this.form.addEventListener('input', (event) => {

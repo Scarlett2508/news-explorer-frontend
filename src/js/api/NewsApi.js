@@ -1,8 +1,11 @@
+import config from '../constants/config';
+
 export default class NewsApi {
-  constructor(url, token, pageSize) {
-    this.url = url;
+  constructor(token, pageSize) {
+    this.url = config.MAINAPI_URL;
     this.token = token;
     this.pageSize = pageSize;
+    this.apiKey = config.NEWSAPI_KEY;
   }
 
   getArticles(keyWord) {

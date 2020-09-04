@@ -2,6 +2,7 @@ import './page/index.css';
 
 import MainApi from './js/api/MainApi';
 import NewsApi from './js/api/NewsApi';
+import Form from './js/components/Form';
 
 import Popup from './js/components/Popup';
 
@@ -28,6 +29,7 @@ const newsApi = new NewsApi(NEWSAPI_URL, NEWSAPI_KEY, PAGE_SIZE, NEWSAPI_DAYS);
 const popupAuth = document.querySelector('.menu__button_auth');
 const popupEnter = document.querySelector('.popup__link');
 const popupAuthLink = document.querySelector('.popup__link-auth');
+const mobileAuth = document.querySelector('.mobile-menu__link_auth');
 
 const popup = new Popup(document.querySelector('.popup__signup'));
 const popupEnterLink = new Popup(document.querySelector('.popup__login'));
@@ -39,6 +41,7 @@ popupEnter.addEventListener('click', popup.close);
 popupEnter.addEventListener('click', popupEnterLink.open);
 popupAuthLink.addEventListener('click', popupEnterLink.close);
 popupAuthLink.addEventListener('click', popup.open);
+mobileAuth.addEventListener('click', popup.open);
 
 // mobile-menu
 
@@ -46,13 +49,16 @@ popupAuthLink.addEventListener('click', popup.open);
 
 // search
 
-const toAuthorize = document.querySelector('.popup__button_ auth');
+const toAuthorize = document.querySelector('.popup__button_auth');
 
 toAuthorize.addEventListener('click', mainApi.signup);
 
 const toEnter = document.querySelector('.popup__button_enter');
 
 toEnter.addEventListener('click', mainApi.signin);
+
+const searchButton = document.querySelector('.search__button');
+searchButton.addEventListener('click', newsApi.getArticles);
 
 // function searchHandler() {
 //   return fetch(`${config.MAINAPI_URL}signup`, {
@@ -70,3 +76,6 @@ toEnter.addEventListener('click', mainApi.signin);
 //             throw err;
 //         });
 // }
+
+const formValidator = new Form(document.querySelector('.popup__form'));
+formValidator.setEventListeners();
