@@ -17,7 +17,7 @@ export default class MainApi extends Api {
         password,
       }),
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
@@ -27,13 +27,16 @@ export default class MainApi extends Api {
     const { email, password } = options;
     return fetch(`${config.MAINAPI_URL}/signin`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       credentials: 'include',
       body: JSON.stringify({
         email,
         password,
       }),
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
@@ -54,7 +57,7 @@ export default class MainApi extends Api {
         authorization: `Bearer ${this.token}`,
       },
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
@@ -77,7 +80,7 @@ export default class MainApi extends Api {
         image: article.image,
       }),
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
@@ -90,7 +93,7 @@ export default class MainApi extends Api {
         authorization: `Bearer ${this.token}`,
       },
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
@@ -103,14 +106,14 @@ export default class MainApi extends Api {
         authorization: `Bearer ${this.token}`,
       },
     })
-      .then((res) => this.parseResponce(res))
+      .then((res) => this._parseResponce(res))
       .catch((err) => {
         throw err;
       });
   }
 
   // eslint-disable-next-line class-methods-use-this
-  parseResponce(res) {
+  _parseResponce(res) {
     if (res.ok) {
       return res.json();
     }

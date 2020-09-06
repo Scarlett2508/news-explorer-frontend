@@ -4,6 +4,7 @@
 #### https://scarlett2508.github.io/news-explorer-frontend/
 
 #### Домен: http://newsforsave.tk/, https://newsforsave.tk/
+#### Бэк: https://github.com/Scarlett2508/news-explorer-api
 
 #### Сайт для поиска новостей по ключевым словам. Можно создавать личный кабинет. Зайдя в личный кабинет можно сохранять понравившиеся статьи, которые будут отображаться на отдельной странице. 
 

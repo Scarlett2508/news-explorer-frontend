@@ -11,9 +11,6 @@
   line-height: 24px;
 }
 
-.menu__button:last-of-type {
-  display: none;
-}
 
 @media screen and (max-width: 635px) {
   .menu__button {

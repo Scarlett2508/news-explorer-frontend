@@ -16,62 +16,8 @@
   <main class="page">
     <div class="root">
       <header class="header">
-        <div class="header__container">
-          <p class="header__logo header__logo_top">NewsExplorer</p>
-          <ul class="menu">
-            <li class="menu menu__button"><a href="index.html" class="link menu__link">Главная</a></li>
-            <li class="menu menu__button menu__button_saved-articles"><a href="loggedin.html"
-                class="link menu__link_articles">Сохранённые
-                статьи</a></li>
-            <li class="menu menu__button menu__button_auth"><a href="#" class="link menu__link">Авторизоваться</a></li>
-            <li class="menu__button_addition"><img src="<%=require('./images/menu.png').default %>" alt="полосочки"
-                class="menu__link_addition"></li>
-            <li class="menu menu__button menu__button_exit"><a href="#" class="link menu__link_exit">Имя</a>
-              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход" class="menu__button_exit-pic">
-            </li>
+        <div class="header__container"></div>
 
-          </ul>
-        </div>
-
-        <!-- <header class="mobile-menu">
-          <div class="header__container">
-            <p class="header__logo header__logo_top">NewsExplorer</p>
-            <button class="mobile-menu_is-opened">
-              <img src="<%=require('./images/back.png').default %>" alt="back" class="mobile-menu__back">
-            </button>
-          </div>
-          <ul class="mobile-menu__container">
-            <li class="mobile-menu__container mobile-menu__button"><a href="index.html"
-                class="mobile-menu__link">Главная</a></li>
-            <li class="mobile-menu__button"><a href="loggedin.html" class="mobile-menu__link">Сохранённые
-                статьи</a></li>
-            <li class="mobile-menu__button"><a href="#"
-                class="mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
-
-            <li class="mobile-menu__button_exit"><a href="#" class="mobile-menu__link mobile-menu__link_exit">Грета</a>
-              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход"
-                class=" mobile-menu__button mobile-menu__button_exit-pic">
-            </li>
-          </ul>
-
-        </header> -->
-
-        <header class="mobile-menu">
-          <input id="menu__toggle" type="checkbox" />
-          <p class="header__logo header__logo_top">NewsExplorer</p>
-          <label class="menu__btn" for="menu__toggle">
-            <span></span>
-          </label>
-          <ul class="menu__box">
-            <li class="mobile-menu__button"><a class="menu__item" href="index.html" class="mobile-menu__link">Главная</a></li>
-            <li class="mobile-menu__button"><a class="menu__item" href="loggedin.html" class="mobile-menu__link">Сохранённые
-              статьи</a></li>
-            <li class="mobile-menu__button "><a href="#" class="menu__item mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
-            <li class="mobile-menu__button_exit"><a class="mobile-menu__link mobile-menu__link_exit">Грета</a>
-              <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход"
-                class=" mobile-menu__button mobile-menu__button_exit-pic"></li>
-          </ul>
-        </header>
 
         <div class="search">
           <h2 class="search search__title">Что в мире творится?</h2>
@@ -83,6 +29,30 @@
           </form>
         </div>
       </header>
+
+
+      <header class="mobile-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <p class="header__logo header__logo_top">NewsExplorer</p>
+        <label class="menu__btn" for="menu__toggle">
+          <span></span>
+        </label>
+        <ul class="menu__box">
+          <li class="mobile-menu__button"><a class="menu__item" href="index.html" class="mobile-menu__link">Главная</a>
+          </li>
+          <li class="mobile-menu__button"><a class="menu__item" href="loggedin.html"
+              class="mobile-menu__link">Сохранённые
+              статьи</a></li>
+          <li class="mobile-menu__button "><a href="#"
+              class="menu__item mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
+          <li class="mobile-menu__button_exit"><a class="mobile-menu__link mobile-menu__link_exit">Грета</a>
+            <img src="<%=require('./images/Union.png').default %>" alt="дверь на выход"
+              class=" mobile-menu__button mobile-menu__button_exit-pic"></li>
+        </ul>
+      </header>
+
+
+
 
       <section class="loading">
         <div class="loading__search">
@@ -157,16 +127,16 @@
         <label class="popup__label" for="signup_email">Email</label>
         <input class="popup__input" id="signup_email" type="email" name="email" pattern="(\w)+(-?\w+)@\w+\.\w+"
           placeholder="Введите почту" required>
-        <span class="popup__error">Неправильный формат email</span>
+        <!-- <span class="popup__error">Неправильный формат email</span> -->
         <label class="popup__label" for="signup_password">Пароль</label>
         <input type="password" name="password" id="signup_password" class="popup__input" placeholder="Введите пароль"
           minlength="6" maxlength="30" required>
-        <span class="popup__error">Длина пароля минимум 6 символов</span>
+        <!-- <span class="popup__error">Длина пароля минимум 6 символов</span> -->
         <label class="popup__label" for="signup_name">Имя</label>
         <input class="popup__input" type="text" id="signup_name" name="name" pattern="^[А-Я][а-яё]+(-[А-Я][а-яё]*)?"
           minlength="2" maxlength="20" placeholder="Имя" required>
-        <span class="popup__error">Длина имени минимум 2 символа</span>
-        <span class="popup__error signup__error">Такой пользователь уже есть</span>
+        <!-- <span class="popup__error">Длина имени минимум 2 символа</span>
+        <span class="popup__error signup__error">Такой пользователь уже есть</span> -->
         <button type="submit"
           class="popup__button popup__button_disabled popup__button_auth">Зарегистрироваться</button>
         <div class="popup__down">
@@ -185,12 +155,12 @@
         <label class="popup__label" for="login_email">Email</label>
         <input class="popup__input" type="email" id="login_email" name="email" pattern="(\w)+(-?\w+)@\w+\.\w+"
           placeholder="Введите почту" required>
-        <span class="popup__error">Неправильный формат email</span>
+        <!-- <span class="popup__error">Неправильный формат email</span> -->
         <label class="popup__label" for="login_password">Пароль</label>
         <input type="password" name="password" id="login_password" class="popup__input" placeholder="Введите пароль"
           minlength="6" maxlength="30" required>
-        <span class="popup__error">Неправильный пароль</span>
-        <span class="popup__error signup__error">Такой пользователь уже есть</span>
+        <!-- <span class="popup__error">Неправильный пароль</span> -->
+        <!-- <span class="popup__error signup__error">Такой пользователь уже есть</span> -->
         <button type="submit" class="popup__button popup__button_disabled popup__button_enter">Войти</button>
         <div class="popup__down">
           <span class="popup__text">или &zwnj;</span>

@@ -1,19 +1,22 @@
 import config from '../constants/config';
 
 export default class NewsApi {
-  constructor(token, pageSize) {
-    this.url = config.MAINAPI_URL;
+  constructor(token) {
+    this.url = config.NEWSAPI_URL;
     this.token = token;
-    this.pageSize = pageSize;
+    this.pageSize = config.PAGE_SIZE;
     this.apiKey = config.NEWSAPI_KEY;
   }
 
   getArticles(keyWord) {
-    return fetch(`${this.url}?q=${keyWord}&pageSize=${this.pageSize}`, {
+    console.log('getArticles', `${this.url}?q=${keyWord}&pageSize=${this.pageSize}`);
+    return fetch(`${this.url}/everything?q=${keyWord}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`, {
       method: 'GET',
       headers: {
-        authorization: this.token,
+        authorization: `Bearer ${this.token}`,
+        'Content-Type': 'application/json',
       },
+      credentials: 'include',
     })
       .then((res) => this.parseResponce(res))
       .catch((err) => {
