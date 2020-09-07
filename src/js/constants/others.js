@@ -1,16 +1,22 @@
 const searchForm = document.querySelector('.search__form');
 const searchButton = document.querySelector('.search__button');
 
-const newsList = document.querySelector('.article__list'); // контейнер карточек
-const caseResults = document.querySelector('.results'); // секция результатов
+const newsList = document.querySelector('.article__list'); 
+const loadingResults = document.querySelector('.loading'); 
 
 const loadingNews = document.querySelector('.loading__search');
 
 const notFoundNews = document.querySelector('.loading__not-found');
-
-
+const firstIndexArray = 0;
+const nullResult = 0;
 const moreNewsButton = document.querySelector('.loading__button');
+const imageUrl = 'https://via.placeholder.com/300';
 
+const articleStatus = {
+    articleStatusLoggedOut:0,
+    articleStatusLoggedIn:1,
+    articleStatusSaved:2,
+  }
 
-
-module.exports = { searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, newsList };
+module.exports = { searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, 
+    newsList, firstIndexArray, nullResult, articleStatus, loadingResults, imageUrl };

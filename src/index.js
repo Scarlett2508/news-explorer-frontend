@@ -7,14 +7,20 @@ import createHeader from './js/components/Header';
 import Popup from './js/components/Popup';
 import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
+import NewsCardList from './js/components/NewsCardList';
+import NewsCard from './js/components/NewsCard';
 
-const {searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, newsList } = require('./js/constants/others');
+const {searchForm, searchButton, loadingNews, 
+  notFoundNews, moreNewsButton, newsList, 
+  firstIndexArray, nullResult, articleStatus, loadingResults } = require('./js/constants/others');
 
 // import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
 
-const errHandler = new ErrorHandler(errorElem);
+// const errHandler = new ErrorHandler(errorElem);
+
+
 
 // const {
 //   MAINAPI_URL,
@@ -28,16 +34,21 @@ let loginEmailInputValue = '';
 let loginPasswordInputValue = '';
 
 const mainApi = new MainApi();
-let newsApi = null;
+// let newsApi = null;
+const newsApi = new NewsApi();
 
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
-const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton);
+
+const newsCard = new NewsCard(mainApi);
+const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, mainApi);
+const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton, newsCardList, loadingResults);
+//newsCardList.addEventListeners();
 
 // if (userData) {
+
 //   newsApi = new NewsApi(userData.token);
 //   newsApi.getArticles('природа');
-//   searchButton.addEventListener('click', newsApi.getArticles());
 // }
 
 // рендерим header
@@ -118,5 +129,5 @@ toEnter.addEventListener('click', async () => {
 // formValidator.setEventListeners();
 
 // search
+ searchButton.addEventListener('click', search._findNews);
 
-searchButton.addEventListener('click', search._findNews);

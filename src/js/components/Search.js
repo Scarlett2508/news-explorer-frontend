@@ -1,3 +1,5 @@
+import { nullResult, loadingResults } from '../constants/others.js';
+
 export default class Search {
     constructor(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton) {
       this.newsApi = newsApi;
@@ -6,6 +8,7 @@ export default class Search {
       this.notFoundNews = notFoundNews;
       this.newsList = newsList;
       this.moreNewsButton = moreNewsButton;
+      this.loadingResults = loadingResults;
     }
   
     _findNews = (e) => {
@@ -19,24 +22,24 @@ export default class Search {
       this._removeEnabled(button, searchInput);
       this._renderLoading(false);
       this.notFoundNews.classList.add('results__not-found_hidden');
-      this.newsApi.getNews(searchInput.value).then((data) => {
+      this.newsApi.getArticles(searchInput.value).then((data) => {
         this._removeDisabled(searchInput, button);
         if ((data === undefined || data.totalResults === nullResult)) {
           this.notFoundNews.classList.remove('results__not-found_hidden');
-          //this.caseResults.classList.remove('results_hidden');
+          this.loadingResults.classList.remove('loading_hidden');
           this.moreNewsButton.setAttribute('disabled');
-          this.cardList.initCardListKeyword(searchInput.value);
-          this.cardList.initCardList(data.articles);
+          this.cardList.createCardListKeyword(searchInput.value);
+          this.cardList.createCardList(data.articles);
         } else {
-          //this.caseResults.classList.remove('results_hidden');
-          this.cardList.initCardListKeyword(searchInput.value);
-          this.cardList.initCardList(data.articles);
+          this.loadingResults.classList.remove('loading_hidden');
+          this.cardList.createCardListKeyword(searchInput.value);
+          this.cardList.createCardList(data.articles);
         }
   
       }).catch((err) => {
         this.notFoundNews.classList.remove('results__not-found_hidden');
-        //this.caseResults.classList.remove('results_hidden');
-        this.moreNewsButton.setAttribute('disabled');
+        loadingResults.classList.remove('loading_hidden');
+        this.moreNewsButton.setAttribute('disabled', true);
         this._removeDisabled(searchInput, button);
         console.log(err);
       }).finally(() => {
@@ -44,7 +47,7 @@ export default class Search {
       })
     }
     _removeDisabled = (button) => {
-      button.removeAttribute('disabled');
+      button.removeAttribute('disabled', true);
     }
     _removeEnabled = (button) => {
       button.setAttribute('disabled', true);

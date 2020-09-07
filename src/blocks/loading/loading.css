@@ -13,3 +13,7 @@
   text-align: center;
   display: none;
 }
+
+.loading_hidden {
+  display: none;
+}
