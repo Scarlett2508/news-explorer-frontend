@@ -1,4 +1,5 @@
 import { imageUrl, articleStatus } from '../constants/others';
+import { setDate } from '../utils/setdate';
 
 export default class NewsCard {
     constructor(mainApi) {
@@ -6,63 +7,62 @@ export default class NewsCard {
       this.findKeyword = '';
     }
 
-  //   getTemplate(articleObj, articleStatus, keyword) {
-  //     this.searchKeyword = '';
-  //     this.searchKeyword = keyword;
-  //     const image = articleObj.urlToImage === null ? imageUrl : articleObj.urlToImage;
-  //     if (articleStatus === articleStatus.articleStatusLoggedOut) {
-  //       return  `<div class="article">
-  //         <div class="card__image">
-  //           <img src="${this._cleanHtmlUpdate(image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="card__photo">
-  //           <div class="card__set">
-  //             <button class="button card__button-tooltip card__button_disabled"><span class="card__button-text card__button_disabled">Войдите, чтобы
-  //               сохранять статьи</span></button>
-  //             <button class="button article__button" disabled></button>
-  //           </div>
-  //         </div>
-  //         <a href="${this._cleanHtmlUpdate(articleObj.url)}" target="_blank" class="card__link">
-  //           <span class="card__date">${this._cleanHtmlUpdate(setNormalDate(articleObj.publishedAt))}</span>
-  //           <h3 class="card__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
-  //           <p class="card__text">${this._cleanHtmlUpdate(articleObj.description)}</p>
-  //           <span class="card__source">${this._cleanHtmlUpdate(articleObj.source.name)}</span>
-  //         </a>
-  //       </div>`;
-  //     }
-  //     if (articleStatus === articleStatus.articleStatusLoggedIn) {
-  //       return `<div class="card">
-  //         <div class="card__image">
-  //           <img src="${this._cleanHtmlUpdate(image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="card__photo">
-  //           <div class="card__set">
-  //             <button class="button card__button"></button>
-  //           </div>
-  //         </div>
-  //         <a href="${this._cleanHtmlUpdate(articleObj.url)}" target="_blank" class="card__link">
-  //           <span class="card__date">${this._cleanHtmlUpdate(setNormalDate(articleObj.publishedAt))}</span>
-  //           <h3 class="card__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
-  //           <p class="card__text">${this._cleanHtmlUpdate(articleObj.description)}</p>
-  //           <span class="card__source">${this._cleanHtmlUpdate(articleObj.source.name)}</span>
-  //         </a>
-  //       </div>`;
-  //     }
-  //     if (articleStatus === articleStatus.articleStatusSaved) {
-  //       return `<div class="card" id="${articleObj._id}">
-  //         <div class="card__image">
-  //           <img src="${this._cleanHtmlUpdate(articleObj.image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="card__photo">
-  //           <div class="card__set">
-  //             <div class="card__name"><span class="card__name-is">${this._cleanHtmlUpdate(articleObj.keyword)}</span></div>
-  //             <button class="button card__button-tooltip card__button_disabled"><span class="card__button-saved card__button_disabled">Убрать из сохранённых</span></button>
-  //             <button class="button card__button-delete"></button>
-  //           </div>
-  //         </div>
-  //         <a href="${this._cleanHtmlUpdate(articleObj.link)}" target="_blank" class="card__link">
-  //           <span class="card__date">${this._cleanHtmlUpdate(articleObj.date)}</span>
-  //           <h3 class="card__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
-  //           <p class="card__text">${this._cleanHtmlUpdate(articleObj.text)}</p>
-  //           <span class="card__source">${this._cleanHtmlUpdate(articleObj.source)}</span>
-  //         </a>
-  //       </div>`;
-  // }
-  //   }
+    getTemplate(articleObj, articleStatus, keyword) {
+      this.searchKeyword = '';
+      this.searchKeyword = keyword;
+      const image = articleObj.urlToImage === null ? imageUrl : articleObj.urlToImage;
+      if (articleStatus === articleStatus.articleStatusLoggedOut) {
+        return  `<div class="article">
+          <div class="article__image-container">
+            <img src="${this._cleanHtmlUpdate(image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="article__pic">
+            <div class="article__addition">
+            <button class="article__addition article__button article__addition-remove article__addition-remove-login"><span
+              class="article__remove article__remove_is-closed">Войдите, чтобы сохранять статьи</span></div></button>
+            </div>
+          </div>
+          <a href="${this._cleanHtmlUpdate(articleObj.url)}" target="_blank" class="article__link">
+            <span class="article__date">${this._cleanHtmlUpdate(setDate(articleObj.publishedAt))}</span>
+            <h3 class="article__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
+            <p class="article__text">${this._cleanHtmlUpdate(articleObj.description)}</p>
+            <span class="article__source">${this._cleanHtmlUpdate(articleObj.source.name)}</span>
+          </a>
+        </div>`;
+      }
+      if (articleStatus === articleStatus.articleStatusLoggedIn) {
+        return `<div class="article">
+          <div class="article__image-container">
+            <img src="${this._cleanHtmlUpdate(image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="article__pic">
+            <div class="article__addition">
+              <button class="button article__button"></button>
+            </div>
+          </div>
+          <a href="${this._cleanHtmlUpdate(articleObj.url)}" target="_blank" class="card__link">
+            <span class="article__date">${this._cleanHtmlUpdate(setDate(articleObj.publishedAt))}</span>
+            <h3 class="article__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
+            <p class="article__text">${this._cleanHtmlUpdate(articleObj.description)}</p>
+            <span class="article__source">${this._cleanHtmlUpdate(articleObj.source.name)}</span>
+          </a>
+        </div>`;
+      }
+      if (articleStatus === articleStatus.articleStatusSaved) {
+        return `<div class="article" id="${articleObj._id}">
+          <div class="article__image-container">
+            <img src="${this._cleanHtmlUpdate(articleObj.image)}" alt="${(this._cleanHtmlUpdate(articleObj.title))}" class="article__pic">
+            <div class="article__addition">
+              <div class="article___name"><span class="article__name-is">${this._cleanHtmlUpdate(articleObj.keyword)}</span></div>
+              <button class="article__bookmark"><span class="article__bookmark_pressed">Убрать из сохранённых</span></button>
+              <button class="article__addition article__addition-remove"></button>
+            </div>
+          </div>
+          <a href="${this._cleanHtmlUpdate(articleObj.link)}" target="_blank" class="article__link">
+            <span class="article__date">${this._cleanHtmlUpdate(articleObj.date)}</span>
+            <h3 class="article__title">${this._cleanHtmlUpdate(articleObj.title)}</h3>
+            <p class="article__text">${this._cleanHtmlUpdate(articleObj.text)}</p>
+            <span class="article__source">${this._cleanHtmlUpdate(articleObj.source)}</span>
+          </a>
+        </div>`;
+  }
+    }
 
 
     removeArticle = (e) => {

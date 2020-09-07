@@ -18,5 +18,9 @@ const articleStatus = {
     articleStatusSaved:2,
   }
 
+  const months = ['Января', 'Февраля', 'Марта', 'Апреля', 
+  'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+
+  
 module.exports = { searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, 
-    newsList, firstIndexArray, nullResult, articleStatus, loadingResults, imageUrl };
+    newsList, firstIndexArray, nullResult, articleStatus, loadingResults, imageUrl, months };

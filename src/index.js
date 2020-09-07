@@ -12,7 +12,8 @@ import NewsCard from './js/components/NewsCard';
 
 const {searchForm, searchButton, loadingNews, 
   notFoundNews, moreNewsButton, newsList, 
-  firstIndexArray, nullResult, articleStatus, loadingResults } = require('./js/constants/others');
+  firstIndexArray, nullResult, articleStatus, loadingResults, months
+ } = require('./js/constants/others');
 
 // import config from './js/constants/config';
 
@@ -43,6 +44,8 @@ const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 const newsCard = new NewsCard(mainApi);
 const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, mainApi);
 const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton, newsCardList, loadingResults);
+searchButton.addEventListener('click', search._findNews);
+
 //newsCardList.addEventListeners();
 
 // if (userData) {
@@ -128,6 +131,4 @@ toEnter.addEventListener('click', async () => {
 // const formValidator = new Form(document.querySelector('.popup__form'));
 // formValidator.setEventListeners();
 
-// search
- searchButton.addEventListener('click', search._findNews);
 
