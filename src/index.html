@@ -25,7 +25,7 @@
           <form class="search__form" name="search-news">
             <input type="text" name="search" class="search__input" placeholder="Введите тему новости" minlength="2"
               required>
-            <button type="submit" class="button search__button search__button_pressed">Искать</button>
+            <button type="submit" class="button search__button search__button_pressed disabled">Искать</button>
           </form>
         </div>
       </header>
@@ -55,11 +55,11 @@
 
 
       <section class="loading">
-        <div class="loading__search">
+        <div class="loading__search loading__search_hidden">
           <i class="preloader"></i>
           <p class="loading__text">Идет поиск новостей...</p>
         </div>
-        <div class="loading__not-found">
+        <div class="loading__not-found loading__not-found_hidden">
           <img class="loading__not-found-icon" src="<%=require('./images/not-found_v1.png').default %>" alt="Not found">
           <h2 class="loading__title">Ничего не найдено</h2>
           <p class="loading__text">К сожалению по вашему запросу ничего не найдено.</p>

@@ -9,14 +9,12 @@ export default class NewsApi {
   }
 
   getArticles(keyWord) {
-    console.log('getArticles', `${this.url}?q=${keyWord}&pageSize=${this.pageSize}`);
+    // console.log('getArticles', `${this.url}?q=${keyWord}&pageSize=${this.pageSize}`);
     return fetch(`${this.url}/everything?q=${keyWord}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${this.token}`,
-        'Content-Type': 'application/json',
       },
-      credentials: 'include',
     })
       .then((res) => this.parseResponce(res))
       .catch((err) => {

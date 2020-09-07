@@ -1,4 +1,8 @@
 .loading__search {
   padding-top: 80px;
+  
+}
+
+.loading__search_hidden {
   display: none;
 }

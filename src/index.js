@@ -5,38 +5,40 @@ import NewsApi from './js/api/NewsApi';
 import Form from './js/components/Form';
 import createHeader from './js/components/Header';
 import Popup from './js/components/Popup';
-
+import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
 
-import config from './js/constants/config';
+// import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
 
 const errHandler = new ErrorHandler(errorElem);
 
-const {
-  MAINAPI_URL,
-  NEWSAPI_KEY,
-  NEWSAPI_URL,
-  PAGE_SIZE,
-  NEWSAPI_DAYS,
-} = config;
+const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton);
+
+// const {
+//   MAINAPI_URL,
+//   NEWSAPI_KEY,
+//   NEWSAPI_URL,
+//   PAGE_SIZE,
+//   NEWSAPI_DAYS,
+// } = config;
 
 let loginEmailInputValue = '';
 let loginPasswordInputValue = '';
 
 const mainApi = new MainApi();
-// const newsApi = new NewsApi(NEWSAPI_URL, NEWSAPI_KEY, PAGE_SIZE, NEWSAPI_DAYS);
 let newsApi = null;
 
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
-if (userData) {
-  newsApi = new NewsApi(userData.token);
-  newsApi.getArticles('природа');
-}
+// if (userData) {
+//   newsApi = new NewsApi(userData.token);
+//   newsApi.getArticles('природа');
+//   searchButton.addEventListener('click', newsApi.getArticles());
+// }
 
-// header
+// рендерим header
 
 createHeader({ isLogged: Boolean(userData) });
 
@@ -46,14 +48,16 @@ const loginPasswordInput = document.getElementById('login_password');
 const buttonLogout = document.querySelector('.menu__button_exit');
 
 const popupAuth = document.querySelector('.menu__button_auth');
+const buttonSavedArticles = document.querySelector('.menu__button_saved-articles');
+
+// click по кнопке выхода
 
 if (buttonLogout) {
   buttonLogout.addEventListener('click', () => {
-    // убрать кнопку выхода и сохранённых статей
-    // добавить кнопку авторизации
     localStorage.removeItem(ITEM_KEY);
     buttonLogout.classList.add('popup__button_hidden');
     popupAuth.classList.remove('popup__button_hidden');
+    buttonSavedArticles.classList.add('popup__button_hidden');
   });
 }
 // popup
@@ -64,6 +68,7 @@ const mobileAuth = document.querySelector('.mobile-menu__link_auth');
 
 const popup = new Popup(document.querySelector('.popup__signup'));
 const popupEnterLink = new Popup(document.querySelector('.popup__login'));
+// const popupSuccessAuth = new Popup(document.querySelector('.popup__success'));
 
 if (popupAuth) {
   popupAuth.addEventListener('click', popup.open);
@@ -74,6 +79,8 @@ popupEnter.addEventListener('click', popupEnterLink.open);
 popupAuthLink.addEventListener('click', popupEnterLink.close);
 popupAuthLink.addEventListener('click', popup.open);
 mobileAuth.addEventListener('click', popup.open);
+
+// авторизация по клику по кнопке
 
 const toAuthorize = document.querySelector('.popup__button_auth');
 
@@ -98,31 +105,17 @@ toEnter.addEventListener('click', async () => {
     newsApi = new NewsApi(token);
     popupAuth.classList.add('popup__button_hidden');
     buttonLogout.classList.remove('popup__button_hidden');
+    buttonSavedArticles.classList.remove('popup__button_hidden');
     popupEnterLink.close();
   } catch (error) {
     console.error(`signin failed ${error}`);
   }
 });
 
-// const searchButton = document.querySelector('.search__button');
-// searchButton.addEventListener('click', newsApi.getArticles);
-
-// function searchHandler() {
-//   return fetch(`${config.MAINAPI_URL}signup`, {
-//     method: 'POST',
-//     credentials: 'include',
-//     withCredentials: true,
-//     body: JSON.stringify({
-//     name: 'alia',
-//                 email: 'alia@a.ru',
-//                 password: '1232457',
-//             }),
-//         })
-//         .then((res) => this.parseResponce(res))
-//         .catch((err) => {
-//             throw err;
-//         });
-// }
-
 // const formValidator = new Form(document.querySelector('.popup__form'));
 // formValidator.setEventListeners();
+
+// search
+
+const searchButton = document.querySelector('.search__button');
+searchButton.addEventListener('click', search._findNews);
