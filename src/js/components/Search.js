@@ -24,7 +24,7 @@ export default class Search {
         if ((data === undefined || data.totalResults === nullResult)) {
           this.notFoundNews.classList.remove('results__not-found_hidden');
           //this.caseResults.classList.remove('results_hidden');
-          this.showMoreButton.setAttribute('disabled');
+          this.moreNewsButton.setAttribute('disabled');
           this.cardList.initCardListKeyword(searchInput.value);
           this.cardList.initCardList(data.articles);
         } else {
@@ -36,7 +36,7 @@ export default class Search {
       }).catch((err) => {
         this.notFoundNews.classList.remove('results__not-found_hidden');
         //this.caseResults.classList.remove('results_hidden');
-        this.showMoreButton.setAttribute('disabled');
+        this.moreNewsButton.setAttribute('disabled');
         this._removeDisabled(searchInput, button);
         console.log(err);
       }).finally(() => {

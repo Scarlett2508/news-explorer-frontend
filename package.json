@@ -21,6 +21,8 @@
     "devDependencies": {
         "@babel/cli": "7.10.4",
         "@babel/core": "7.10.4",
+        "@babel/plugin-proposal-class-properties": "^7.10.4",
+        "@babel/plugin-syntax-class-properties": "^7.10.4",
         "@babel/preset-env": "7.10.4",
         "babel-loader": "8.1.0",
         "clean-webpack-plugin": "3.0.0",
@@ -50,5 +52,13 @@
         "core-js": "3.4.1",
         "cross-env": "7.0.2",
         "cssnano": "4.1.10"
-    }
+    },
+    "babel": {
+        "presets": [
+              "@babel/preset-env"
+            ],
+            "plugins": [
+              "@babel/plugin-proposal-class-properties"
+            ]
+        }
 }

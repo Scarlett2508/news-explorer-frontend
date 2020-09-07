@@ -8,13 +8,13 @@ import Popup from './js/components/Popup';
 import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
 
+const {searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, newsList } = require('./js/constants/others');
+
 // import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
 
 const errHandler = new ErrorHandler(errorElem);
-
-const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton);
 
 // const {
 //   MAINAPI_URL,
@@ -31,6 +31,8 @@ const mainApi = new MainApi();
 let newsApi = null;
 
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
+
+const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton);
 
 // if (userData) {
 //   newsApi = new NewsApi(userData.token);
@@ -117,5 +119,4 @@ toEnter.addEventListener('click', async () => {
 
 // search
 
-const searchButton = document.querySelector('.search__button');
 searchButton.addEventListener('click', search._findNews);
