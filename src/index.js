@@ -46,7 +46,7 @@ const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, 
 const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton, newsCardList, loadingResults);
 searchButton.addEventListener('click', search._findNews);
 
-//newsCardList.addEventListeners();
+//
 
 // if (userData) {
 
@@ -132,3 +132,4 @@ toEnter.addEventListener('click', async () => {
 // formValidator.setEventListeners();
 
 
+newsCardList.eventListeners();

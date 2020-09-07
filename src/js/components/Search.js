@@ -1,14 +1,14 @@
-import { nullResult, loadingResults } from '../constants/others.js';
+import { nullResult, loadingResults } from '../constants/others';
 
 export default class Search {
-    constructor(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton) {
+    constructor(newsApi, searchForm, loadingNews, notFoundNews, cardList, moreNewsButton) {
       this.newsApi = newsApi;
       this.searchForm = searchForm;
       this.loadingNews = loadingNews;
       this.notFoundNews = notFoundNews;
-      this.newsList = newsList;
+      this.cardList = cardList;
       this.moreNewsButton = moreNewsButton;
-      this.loadingResults = loadingResults;
+      this.loadingResults = loadingResults; 
     }
   
     _findNews = (e) => {
@@ -18,27 +18,30 @@ export default class Search {
         alert('Введите ключевое слово')
         return;
       }
-      const button = document.querySelector('.searchButton');
+      const button = document.querySelector('.search__button');
       // this._setDisabled(button, searchInput);
       this._renderLoading(false);
+      
       this.notFoundNews.classList.add('results__not-found_hidden');
       this.newsApi.getArticles(searchInput.value).then((data) => {
-        this._removeDisabled(searchInput, button);
+        
+        //this._removeDisabled(searchInput, button);
         if ((data === undefined || data.totalResults === nullResult)) {
           this.notFoundNews.classList.remove('results__not-found_hidden');
           this.loadingResults.classList.remove('loading_hidden');
-          // this.moreNewsButton.setAttribute('disabled', true);
-          // this.cardList.createCardListKeyword(searchInput.value);
-          // this.cardList.createCardList(data.articles);
+          
+          this.moreNewsButton.setAttribute('disabled', true);
+          this.cardList.createCardListKeyword(searchInput.value);
+          this.cardList.createCardList(data.articles);
         } else {
           this.loadingResults.classList.remove('loading_hidden');
-          // this.cardList.createCardListKeyword(searchInput.value);
-         //  this.cardList.createCardList(data.articles);
+          this.cardList.createCardListKeyword(searchInput.value);
+          this.cardList.createCardList(data.articles);
         }
   
       }).catch((err) => {
         this.notFoundNews.classList.remove('results__not-found_hidden');
-        loadingResults.classList.remove('loading_hidden');
+        this.loadingResults.classList.remove('loading_hidden');
         this.moreNewsButton.setAttribute('disabled', true);
         this._removeDisabled(searchInput, button);
         console.log(err);

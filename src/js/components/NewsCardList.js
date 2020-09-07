@@ -15,10 +15,7 @@ export default class NewsCardList {
     return this.renderPosition.insertAdjacentHTML('beforeend', this.newsCard.getTemplate(articleObj, this.articleStatus, this.keyword));
   }
 
-  // addEventListeners = () => {
-  //   this.renderPosition.addEventListener('click', this.newsCard.saveArticle);
-  //   this.renderPosition.addEventListener('click', this.newsCard.removeArticle);
-  // }
+  
 
   _clearArticleList = () => {
     while (this.renderPosition.firstChild) {
@@ -63,6 +60,9 @@ export default class NewsCardList {
     this.keyword = '';
     this.keyword = word;
   }
-
+  eventListeners = () => {
+    this.renderPosition.addEventListener('click', this.newsCard.saveArticle);
+    this.renderPosition.addEventListener('click', this.newsCard.removeArticle);
+  }
 }
 
