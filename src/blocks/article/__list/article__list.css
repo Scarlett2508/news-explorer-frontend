@@ -1,0 +1,19 @@
+.article__list {
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+  background-color: #FFF;
+  border-radius: 15px;
+  border: 1px solid #FFF;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 282px);
+  grid-gap: 15px 15px;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 620px) {
+    .article__list {
+        display: flex;
+        flex-direction: column;
+    }
+  }

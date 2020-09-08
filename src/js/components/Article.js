@@ -10,8 +10,8 @@ const createArticle = (data) => {
       <button class="article__addition article__button article__addition-remove article__addition-remove-login"><span
         class="article__remove article__remove_is-closed">Войдите, чтобы сохранять статьи</span></div></button>
       </div>
-    </div>
-    <a href="${url}" target="_blank" class="article__link">
+    
+    <a href="${url}" target="_blank" class="article article__link">
       <span class="article__date">${publishedAt}</span>
       <h3 class="article__title">${title}</h3>
       <p class="article__text">${description}</p>

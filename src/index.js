@@ -6,14 +6,14 @@ import Form from './js/components/Form';
 import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
 import Popup from './js/components/Popup';
-import Search from './js/components/Search';
+// import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
 import NewsCardList from './js/components/NewsCardList';
 import NewsCard from './js/components/NewsCard';
 
 import './page/index.css';
 
-const {searchForm, loadingNews, 
+const { loadingNews, 
   notFoundNews, moreNewsButton, newsList, 
   firstIndexArray, nullResult, articleStatus, loadingResults, months
  } = require('./js/constants/others');
@@ -21,7 +21,7 @@ const {searchForm, loadingNews,
 // import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
-const DEBOUNCE_DELAY = 500;
+// const DEBOUNCE_DELAY = 500;
 
 // const errHandler = new ErrorHandler(errorElem);
 
@@ -62,7 +62,7 @@ const searchInput = document.querySelector('.search__input');
 searchInput.addEventListener('input', searchInputHandler);
 const newsCard = new NewsCard(mainApi);
 const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, mainApi);
-const search = new Search(newsApi, loadingNews, notFoundNews, moreNewsButton);
+// const search = new Search(newsApi, loadingNews, notFoundNews, moreNewsButton);
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
