@@ -59,13 +59,13 @@
           <i class="preloader"></i>
           <p class="loading__text">Идет поиск новостей...</p>
         </div>
-        <div class="loading__not-found loading__not-found_hidden">
+        <div class="loading__not-found">
           <img class="loading__not-found-icon" src="<%=require('./images/not-found_v1.png').default %>" alt="Not found">
           <h2 class="loading__title">Ничего не найдено</h2>
           <p class="loading__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
         <!-- Образец статьи -->
-         <div class="article__list"></div>
+         
         <!--<template class="article_template">
           <div class="article" data-keyword>
             <div class="article__image-container">
@@ -84,7 +84,7 @@
         <button class="loading__button">Показать ещё</button>
 
       </section>
-
+      <div class="article__list"></div>
       <section class="author">
         <div class="author__container">
           <img src="<%=require('./images/author.png').default %>" alt="Аватар" class="author__pic">

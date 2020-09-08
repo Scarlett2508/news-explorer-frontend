@@ -1,16 +1,19 @@
-import './page/index.css';
+import _debounce from 'lodash/debounce';
 
 import MainApi from './js/api/MainApi';
 import NewsApi from './js/api/NewsApi';
 import Form from './js/components/Form';
 import createHeader from './js/components/Header';
+import createArticle from './js/components/Article';
 import Popup from './js/components/Popup';
 import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
 import NewsCardList from './js/components/NewsCardList';
 import NewsCard from './js/components/NewsCard';
 
-const {searchForm, searchButton, loadingNews, 
+import './page/index.css';
+
+const {searchForm, loadingNews, 
   notFoundNews, moreNewsButton, newsList, 
   firstIndexArray, nullResult, articleStatus, loadingResults, months
  } = require('./js/constants/others');
@@ -18,6 +21,7 @@ const {searchForm, searchButton, loadingNews,
 // import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
+const DEBOUNCE_DELAY = 500;
 
 // const errHandler = new ErrorHandler(errorElem);
 
@@ -33,18 +37,38 @@ const ITEM_KEY = 'userData';
 
 let loginEmailInputValue = '';
 let loginPasswordInputValue = '';
+let searchInputValue = '';
+
 
 const mainApi = new MainApi();
 // let newsApi = null;
 const newsApi = new NewsApi();
-
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
+async function getArticles(keyWord) {
+  console.log("function getArticles", keyWord);
+  const {articles} = await newsApi.getArticles(keyWord);
+  articles.forEach((articleData) => {
+    createArticle(articleData);
+  })
+}
 
+function searchInputHandler(e) {
+  searchInputValue = e.target.value;
+}
+
+const searchButton = document.querySelector('.search__button');
+const searchInput = document.querySelector('.search__input');
+searchInput.addEventListener('input', searchInputHandler);
 const newsCard = new NewsCard(mainApi);
 const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, mainApi);
-const search = new Search(newsApi, searchForm, loadingNews, notFoundNews, newsList, moreNewsButton, newsCardList, loadingResults);
-searchButton.addEventListener('click', search._findNews);
+const search = new Search(newsApi, loadingNews, notFoundNews, moreNewsButton);
+
+searchButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  getArticles(searchInputValue);
+});
+
 
 //
 

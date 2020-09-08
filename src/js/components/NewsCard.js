@@ -7,7 +7,7 @@ export default class NewsCard {
       this.findKeyword = '';
     }
 
-    getTemplate(articleObj, articleStatus, keyword) {
+    getTemplate(articleObj, keyword) {
       this.searchKeyword = '';
       this.searchKeyword = keyword;
       const image = articleObj.urlToImage === null ? imageUrl : articleObj.urlToImage;
@@ -65,7 +65,7 @@ export default class NewsCard {
     }
 
 
-    removeArticle = (e) => {
+    removeArticle(e) {
       if (e.target.classList.contains('article__addition-remove')) {
         if (confirm('Вы точно ходите удалить статью?')) {
           const article = event.target.closest('.article');

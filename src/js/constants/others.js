@@ -1,5 +1,4 @@
 const searchForm = document.querySelector('.search__form');
-const searchButton = document.querySelector('.search__button');
 
 const newsList = document.querySelector('.article__list'); 
 const loadingResults = document.querySelector('.loading'); 
@@ -17,10 +16,11 @@ const articleStatus = {
     articleStatusLoggedIn:1,
     articleStatusSaved:2,
   }
+// const ARTICLE_STATUS 
 
 const months = ['Января', 'Февраля', 'Марта', 'Апреля', 
   'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
 
   
-module.exports = { searchForm, searchButton, loadingNews, notFoundNews, moreNewsButton, 
+module.exports = { searchForm, loadingNews, notFoundNews, moreNewsButton, 
     newsList, firstIndexArray, nullResult, articleStatus, loadingResults, imageUrl, months };

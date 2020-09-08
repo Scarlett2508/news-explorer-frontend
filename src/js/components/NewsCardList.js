@@ -6,23 +6,22 @@ export default class NewsCardList {
     this.newsCard = newsCard;
     this.moreNewsButton = moreNewsButton;
     this.renderPosition = renderPosition;
-    console.log(renderPosition)
     this.items = [];
     this.articleStatus = articleStatus.articleStatusLoggedOut;
     this.keyword = '';
   }
 
-  _addArticle = (articleObj) => {
+  _addArticle(articleObj) {
     return this.renderPosition.insertAdjacentHTML('beforeend', this.newsCard.getTemplate(articleObj, this.articleStatus, this.keyword));
   }
 
-  _clearArticleList = () => {
+  _clearArticleList() {
     while (this.renderPosition.firstChild) {
       this.renderPosition.removeChild(this.renderPosition.firstChild);
     }
   }
 
-  _showMoreArticles = () => {
+  _showMoreArticles() {
     let currentIndex = 0;
     let currentLimit = 3;
     if (this.items[firstIndexArray].length !== nullResult) {
