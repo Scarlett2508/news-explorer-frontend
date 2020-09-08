@@ -1,12 +1,14 @@
 import { nullResult, loadingResults } from '../constants/others';
 
 export default class Search {
-    constructor(newsApi, searchForm, loadingNews, notFoundNews, cardList, moreNewsButton) {
+    constructor(newsApi, searchForm, loadingNews, notFoundNews, moreNewsButton, ) {
       this.newsApi = newsApi;
       this.searchForm = searchForm;
       this.loadingNews = loadingNews;
       this.notFoundNews = notFoundNews;
-      this.cardList = cardList;
+      // this.cardList = document.querySelector('.article__list');
+      
+      this.cardList = [];
       this.moreNewsButton = moreNewsButton;
       this.loadingResults = loadingResults; 
     }
@@ -30,9 +32,10 @@ export default class Search {
           this.notFoundNews.classList.remove('results__not-found_hidden');
           this.loadingResults.classList.remove('loading_hidden');
           
-          this.moreNewsButton.setAttribute('disabled', true);
+         //  this.moreNewsButton.setAttribute('disabled', true);
           this.cardList.createCardListKeyword(searchInput.value);
           this.cardList.createCardList(data.articles);
+          
         } else {
           this.loadingResults.classList.remove('loading_hidden');
           this.cardList.createCardListKeyword(searchInput.value);
@@ -42,7 +45,7 @@ export default class Search {
       }).catch((err) => {
         this.notFoundNews.classList.remove('results__not-found_hidden');
         this.loadingResults.classList.remove('loading_hidden');
-        this.moreNewsButton.setAttribute('disabled', true);
+        // this.moreNewsButton.setAttribute('disabled', true);
         this._removeDisabled(searchInput, button);
         console.log(err);
       }).finally(() => {

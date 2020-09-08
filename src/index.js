@@ -132,4 +132,4 @@ toEnter.addEventListener('click', async () => {
 // formValidator.setEventListeners();
 
 
-newsCardList.eventListeners();
+// newsCardList.eventListeners();
