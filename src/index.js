@@ -14,13 +14,21 @@ import NewsCard from './js/components/NewsCard';
 import './page/index.css';
 
 const { loadingNews, 
-  notFoundNews, moreNewsButton, newsList, 
+  notFoundNews, newsList, 
   firstIndexArray, nullResult, articleStatus, loadingResults, months
  } = require('./js/constants/others');
 
 // import config from './js/constants/config';
 
 const ITEM_KEY = 'userData';
+
+const LIMIT = 4;
+
+let loginEmailInputValue = '';
+let loginPasswordInputValue = '';
+let searchInputValue = '';
+let offset = 0;
+let articles = [];
 // const DEBOUNCE_DELAY = 500;
 
 // const errHandler = new ErrorHandler(errorElem);
@@ -35,20 +43,28 @@ const ITEM_KEY = 'userData';
 //   NEWSAPI_DAYS,
 // } = config;
 
-let loginEmailInputValue = '';
-let loginPasswordInputValue = '';
-let searchInputValue = '';
-
-
 const mainApi = new MainApi();
 // let newsApi = null;
-const newsApi = new NewsApi();
+let newsApi = new NewsApi();
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
-async function getArticles(keyWord) {
-  console.log("function getArticles", keyWord);
-  const {articles} = await newsApi.getArticles(keyWord);
-  articles.forEach((articleData) => {
+
+const articlesContainer = document.querySelector('.article__list');
+
+
+
+async function fetchArticles(keyWord) {
+  [...articlesContainer.children].forEach((child) => child.remove());
+  const result = await newsApi.getArticles(keyWord);
+  articles = result.articles;
+  offset = 0;
+  renderCurrentArticles();
+}
+
+function renderCurrentArticles() {
+  const currentArticles = articles.slice(offset, offset + LIMIT);
+  offset += LIMIT;
+  currentArticles.forEach((articleData) => {
     createArticle(articleData);
   })
 }
@@ -66,9 +82,13 @@ const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, 
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
-  getArticles(searchInputValue);
+  const loadingBlock = document.querySelector('.loading')
+  loadingBlock.classList.remove('loading_hidden')
+  fetchArticles(searchInputValue);
 });
 
+const moreNewsButton = document.querySelector('.loading__button');
+moreNewsButton.addEventListener('click', renderCurrentArticles);
 
 //
 
@@ -79,8 +99,8 @@ searchButton.addEventListener('click', (e) => {
 // }
 
 // рендерим header
-
-createHeader({ isLogged: Boolean(userData) });
+console.log(userData)
+createHeader(userData);
 
 const errorElem = document.querySelector('.error-text');
 const loginEmailInput = document.getElementById('login_email');
@@ -137,12 +157,15 @@ loginPasswordInput.addEventListener('input', (e) => {
 });
 toEnter.addEventListener('click', async () => {
   try {
-    const { token } = await mainApi.signin({
+    const userData = await mainApi.signin({
       email: loginEmailInputValue,
       password: loginPasswordInputValue,
     });
-    localStorage.setItem(ITEM_KEY, JSON.stringify({ token }));
-    newsApi = new NewsApi(token);
+    localStorage.setItem(ITEM_KEY, JSON.stringify(userData));
+    newsApi = new NewsApi(userData.token);
+    const headerContainer = document.querySelector('.header__container');
+    [...headerContainer.children].forEach((child) => child.remove());
+    createHeader(userData);
     popupAuth.classList.add('popup__button_hidden');
     buttonLogout.classList.remove('popup__button_hidden');
     buttonSavedArticles.classList.remove('popup__button_hidden');

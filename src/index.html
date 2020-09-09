@@ -55,36 +55,22 @@
 
 
       <section class="loading loading_hidden">
+        <h2 class="search-results search-results_hidden">Результаты поиска</h2>
+        <div class="article__list"></div>
+        
         <div class="loading__search loading__search_hidden">
           <i class="preloader"></i>
           <p class="loading__text">Идет поиск новостей...</p>
         </div>
-        <div class="loading__not-found">
+        <div class="loading__not-found loading__not-found_hidden">
           <img class="loading__not-found-icon" src="<%=require('./images/not-found_v1.png').default %>" alt="Not found">
           <h2 class="loading__title">Ничего не найдено</h2>
           <p class="loading__text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
-        <!-- Образец статьи -->
-         
-        <!--<template class="article_template">
-          <div class="article" data-keyword>
-            <div class="article__image-container">
-              <img class="article__pic" alt="Фотография новости">
-              <div class="article__addition article__addition-remove article__addition-remove-login"><span
-                  class="article__remove article__remove_is-closed">Войдите, чтобы сохранять статьи</span></div>
-              <div class="article__bookmark article__bookmark_pressed"></div>
-            </div>
-            <span class="article__date"></span>
-            <h3 class="article__title"></h3>
-            <p class="article__text"></p>
-            <a class="article__source"></a>
-          </div>
-        </template>
-      </div> -->
-        <button class="loading__button">Показать ещё</button>
+        <button class="loading__button loading__button_hidden">Показать ещё</button>
 
       </section>
-      <div class="article__list"></div>
+      <!-- <div class="article__list"></div> -->
       <section class="author">
         <div class="author__container">
           <img src="<%=require('./images/author.png').default %>" alt="Аватар" class="author__pic">

@@ -8,7 +8,7 @@ const loadingNews = document.querySelector('.loading__search');
 const notFoundNews = document.querySelector('.loading__not-found');
 const firstIndexArray = 0;
 const nullResult = 0;
-const moreNewsButton = document.querySelector('.loading__button');
+
 const imageUrl = 'https://via.placeholder.com/300';
 
 const articleStatus = {
@@ -22,5 +22,5 @@ const months = ['Января', 'Февраля', 'Марта', 'Апреля',
   'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
 
   
-module.exports = { searchForm, loadingNews, notFoundNews, moreNewsButton, 
+module.exports = { searchForm, loadingNews, notFoundNews, 
     newsList, firstIndexArray, nullResult, articleStatus, loadingResults, imageUrl, months };

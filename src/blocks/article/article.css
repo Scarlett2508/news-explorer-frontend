@@ -16,6 +16,8 @@
   border: 1px solid #FFF;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .article__loggedin {
@@ -25,8 +27,21 @@
 
 @media screen and (max-width: 620px) {
   .article {
-    width: 420px;
+    
     margin: auto;
   }
 }
 
+.search-results {
+  font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    margin: 0;
+    padding: 40px 0 64px 80px;
+    text-align: left;
+}
+/* 
+.search-results_hidden {
+  display: none;
+} */
