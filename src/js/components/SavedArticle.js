@@ -1,4 +1,4 @@
-const createSavedArticle = ({articleData, mainApi}) => {
+const createSavedArticle = ({articleData, mainApi, updateArticles}) => {
   const { image, title, link, date, source, _id } = articleData;
   const rootNode = document.querySelector('.article__list');
   const template = `<div class="article">
@@ -22,25 +22,14 @@ const createSavedArticle = ({articleData, mainApi}) => {
   const articleNode = articleNodes[articleNodes.length - 1];
   const deleteButtons = document.querySelectorAll('.article__bookmark_delete');
   const deleteButton = deleteButtons[deleteButtons.length - 1];
-  console.log(articleNode)
+
   deleteButton.addEventListener('click', async (e) => {
     await mainApi.deleteArticle(_id);
     articleNode.remove();
+    updateArticles(_id);
   })
 
-  
 
-  function deleteArticle(articleId) {
-      //mainApi.deleteArticle(bookmarkedArticle._id)
-      // нажатие на кнопку
-      // удаление статьи 
-  
-  }
-  
-    // const additionButtons = document.querySelectorAll('.article__addition');
-    // const additionButton = additionButtons[additionButtons.length - 1];
-    // const warningWords = document.querySelectorAll('.article__remove');
-    // const warningWord = warningWords[warningWords.length - 1];
   
   
 //     additionButton.addEventListener('click', async (e) => {

@@ -21,7 +21,7 @@ async function fetchArticles() {
   loader.classList.add('loading__search_hidden');
   createTopTitles(userData, articles);
   articles.forEach((articleData) => {
-    createSavedArticle({articleData, mainApi})
+    createSavedArticle({articleData, mainApi, updateArticles})
   })
   // показать малый заголовок
   // показать большой заголовок с количеством статей
@@ -56,8 +56,13 @@ function createTopTitles(userData, articles) {
   rootNode.insertAdjacentHTML('beforeend', template);
 }
 
-function updateTopTitles() {
-  
+const updateArticles = (articleId) => {
+  articles = articles.filter((article) => {
+    return article._id !== articleId; 
+  });
+  const articlesContainer = document.querySelector('.top');
+  [...articlesContainer.children].forEach((child) => child.remove());
+  createTopTitles(userData, articles);
 }
 
 fetchArticles();
