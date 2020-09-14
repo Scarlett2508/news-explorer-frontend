@@ -5,6 +5,11 @@
   font-style: normal;
   color: #FFF;
   margin: auto;
+  
+}
+
+.link {
+  white-space: nowrap;
 }
 
 .menu__link_articles {

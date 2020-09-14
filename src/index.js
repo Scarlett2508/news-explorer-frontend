@@ -6,12 +6,15 @@ import Form from './js/components/Form';
 import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
 import Popup from './js/components/Popup';
-// import Search from './js/components/Search';
 import ErrorHandler from './js/utils/errorHandler';
 import NewsCardList from './js/components/NewsCardList';
 import NewsCard from './js/components/NewsCard';
 
+import { ITEM_KEY } from './js/constants';
+
 import './page/index.css';
+
+
 
 const { loadingNews, 
   notFoundNews, newsList, 
@@ -20,55 +23,77 @@ const { loadingNews,
 
 // import config from './js/constants/config';
 
-const ITEM_KEY = 'userData';
+
 
 const LIMIT = 4;
 
+let signupNameInputValue = '';
 let loginEmailInputValue = '';
 let loginPasswordInputValue = '';
 let searchInputValue = '';
 let offset = 0;
 let articles = [];
+let savedArticles = null;
 // const DEBOUNCE_DELAY = 500;
 
 // const errHandler = new ErrorHandler(errorElem);
 
 
-
-// const {
-//   MAINAPI_URL,
-//   NEWSAPI_KEY,
-//   NEWSAPI_URL,
-//   PAGE_SIZE,
-//   NEWSAPI_DAYS,
-// } = config;
+const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
 const mainApi = new MainApi();
-// let newsApi = null;
 let newsApi = new NewsApi();
-const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
 
 
 const articlesContainer = document.querySelector('.article__list');
 
-
-
 async function fetchArticles(keyWord) {
   [...articlesContainer.children].forEach((child) => child.remove());
   const result = await newsApi.getArticles(keyWord);
+
+  if (!savedArticles) {
+    await fetchSavedArticles();
+  }
   articles = result.articles;
   offset = 0;
   renderCurrentArticles();
+}
+
+const fetchSavedArticles = () => {
+  // return mainApi.getArticles();
+  return new Promise(async (resolve) => {
+    const result = await mainApi.getArticles();
+    savedArticles = result.data;
+    resolve();
+  }) 
+}
+
+const updateSavedArticles = ({articleId, article}) => {
+  if (articleId) {
+    savedArticles = savedArticles.filter((savedArticle) => {
+      return savedArticle._id !== articleId;
+    })
+  } else if (article) {
+    savedArticles.push(article)
+  }
+
+  
 }
 
 function renderCurrentArticles() {
   const currentArticles = articles.slice(offset, offset + LIMIT);
   offset += LIMIT;
   currentArticles.forEach((articleData) => {
-    createArticle(articleData);
+    createArticle({
+      articleData, 
+      userData, 
+      mainApi, 
+      savedArticles, 
+      keyWord: searchInputValue,
+      updateSavedArticles,
+     });
   })
 }
-
 function searchInputHandler(e) {
   searchInputValue = e.target.value;
 }
@@ -90,22 +115,17 @@ searchButton.addEventListener('click', (e) => {
 const moreNewsButton = document.querySelector('.loading__button');
 moreNewsButton.addEventListener('click', renderCurrentArticles);
 
-//
-
-// if (userData) {
-
-//   newsApi = new NewsApi(userData.token);
-//   newsApi.getArticles('природа');
-// }
 
 // рендерим header
-console.log(userData)
 createHeader(userData);
 
 const errorElem = document.querySelector('.error-text');
 const loginEmailInput = document.getElementById('login_email');
 const loginPasswordInput = document.getElementById('login_password');
 const buttonLogout = document.querySelector('.menu__button_exit');
+const signupNameInput = document.getElementById('signup_name');
+const signupEmailInput = document.getElementById('signup_email');
+const signupPasswordInput = document.getElementById('signup_password');
 
 const popupAuth = document.querySelector('.menu__button_auth');
 const buttonSavedArticles = document.querySelector('.menu__button_saved-articles');
@@ -128,7 +148,7 @@ const mobileAuth = document.querySelector('.mobile-menu__link_auth');
 
 const popup = new Popup(document.querySelector('.popup__signup'));
 const popupEnterLink = new Popup(document.querySelector('.popup__login'));
-// const popupSuccessAuth = new Popup(document.querySelector('.popup__success'));
+const popupSuccessAuth = new Popup(document.querySelector('.popup__success'));
 
 if (popupAuth) {
   popupAuth.addEventListener('click', popup.open);
@@ -141,21 +161,48 @@ popupAuthLink.addEventListener('click', popup.open);
 mobileAuth.addEventListener('click', popup.open);
 
 // авторизация по клику по кнопке
-
-const toAuthorize = document.querySelector('.popup__button_auth');
-
-toAuthorize.addEventListener('click', () => {
-  mainApi.signup();
+signupNameInput.addEventListener('input', (e) => {
+  signupNameInputValue = e.target.value;
 });
 
-const toEnter = document.querySelector('.popup__button_enter');
+signupEmailInput.addEventListener('input', (e) => {
+  loginEmailInputValue = e.target.value;
+});
+signupPasswordInput.addEventListener('input', (e) => {
+  loginPasswordInputValue = e.target.value;
+});
+
 loginEmailInput.addEventListener('input', (e) => {
   loginEmailInputValue = e.target.value;
 });
 loginPasswordInput.addEventListener('input', (e) => {
   loginPasswordInputValue = e.target.value;
 });
-toEnter.addEventListener('click', async () => {
+const toAuthorize = document.querySelector('.popup__button_auth');
+
+toAuthorize.addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  try {
+    const userData = await mainApi.signup({
+      name: signupNameInputValue,
+      email: loginEmailInputValue,
+      password: loginPasswordInputValue,
+    });
+    if (userData !== undefined) {
+      popup.close();
+      popupSuccessAuth.open();
+    }
+  } catch (error) {
+    console.error(`signup failed ${error}`);
+  }
+});
+
+const toEnter = document.querySelector('.popup__button_enter');
+
+toEnter.addEventListener('click', async (e) => {
+  e.preventDefault();
+
   try {
     const userData = await mainApi.signin({
       email: loginEmailInputValue,
@@ -175,8 +222,7 @@ toEnter.addEventListener('click', async () => {
   }
 });
 
+
+
 // const formValidator = new Form(document.querySelector('.popup__form'));
 // formValidator.setEventListeners();
-
-
-// newsCardList.eventListeners();

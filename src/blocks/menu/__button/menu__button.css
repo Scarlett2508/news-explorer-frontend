@@ -10,9 +10,25 @@
   font-size: 18px;
   line-height: 24px;
   margin-right: 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
+.menu__button_active-loggedin:after {
+  /* border-bottom: 3px solid black; */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+}
 
+.menu__button_active-main {
+  border-bottom: 3px solid white;
+}
 
 @media screen and (max-width: 635px) {
   .menu__button {

@@ -1,7 +1,11 @@
-import Api from './Api';
 import config from '../constants/config';
+import {ITEM_KEY} from '../constants';
 
-export default class MainApi extends Api {
+export default class MainApi {
+  get token() {
+    return (JSON.parse(localStorage.getItem(ITEM_KEY)) || {}).token;
+  }
+  
   signup(options) {
     const { name, email, password } = options;
 

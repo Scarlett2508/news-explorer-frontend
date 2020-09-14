@@ -17,3 +17,8 @@
 .menu__button_exit_black {
   border: 1px solid black;
 }
+
+
+.menu__button_exit-pic_black {
+  filter: invert(1);
+}

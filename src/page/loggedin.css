@@ -8,6 +8,8 @@
 @import url(../blocks/header/__logo/header__logo.css);
 @import url(../blocks/top/top.css);
 @import url(../blocks/header/__black/header__black.css);
+@import url(../blocks/loading/loading.css);
+@import url(../blocks/preloader/preloader.css);
 
 body {
   background: #fff;
