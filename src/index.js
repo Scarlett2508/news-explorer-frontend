@@ -5,10 +5,9 @@ import NewsApi from './js/api/NewsApi';
 import Form from './js/components/Form';
 import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
+import createMobileMenu from './js/components/MobileMenu';
 import Popup from './js/components/Popup';
 import ErrorHandler from './js/utils/errorHandler';
-import NewsCardList from './js/components/NewsCardList';
-import NewsCard from './js/components/NewsCard';
 
 import { ITEM_KEY } from './js/constants';
 
@@ -16,10 +15,10 @@ import './page/index.css';
 
 
 
-const { loadingNews, 
-  notFoundNews, newsList, 
-  firstIndexArray, nullResult, articleStatus, loadingResults, months
- } = require('./js/constants/others');
+// const { loadingNews, 
+//   notFoundNews, newsList, 
+//   firstIndexArray, nullResult, articleStatus, loadingResults, months
+//  } = require('./js/constants/others');
 
 // import config from './js/constants/config';
 
@@ -60,7 +59,6 @@ async function fetchArticles(keyWord) {
 }
 
 const fetchSavedArticles = () => {
-  // return mainApi.getArticles();
   return new Promise(async (resolve) => {
     const result = await mainApi.getArticles();
     savedArticles = result.data;
@@ -101,9 +99,6 @@ function searchInputHandler(e) {
 const searchButton = document.querySelector('.search__button');
 const searchInput = document.querySelector('.search__input');
 searchInput.addEventListener('input', searchInputHandler);
-const newsCard = new NewsCard(mainApi);
-const newsCardList = new NewsCardList(newsCard, loadingResults, moreNewsButton, mainApi);
-// const search = new Search(newsApi, loadingNews, notFoundNews, moreNewsButton);
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -118,6 +113,7 @@ moreNewsButton.addEventListener('click', renderCurrentArticles);
 
 // рендерим header
 createHeader(userData);
+createMobileMenu(userData);
 
 const errorElem = document.querySelector('.error-text');
 const loginEmailInput = document.getElementById('login_email');
@@ -144,7 +140,8 @@ if (buttonLogout) {
 
 const popupEnter = document.querySelector('.popup__link');
 const popupAuthLink = document.querySelector('.popup__link-auth');
-const mobileAuth = document.querySelector('.mobile-menu__link_auth');
+
+const popupPerfromEnter = document.querySelector('.popup__link-perform')
 
 const popup = new Popup(document.querySelector('.popup__signup'));
 const popupEnterLink = new Popup(document.querySelector('.popup__login'));
@@ -158,7 +155,10 @@ popupEnter.addEventListener('click', popup.close);
 popupEnter.addEventListener('click', popupEnterLink.open);
 popupAuthLink.addEventListener('click', popupEnterLink.close);
 popupAuthLink.addEventListener('click', popup.open);
-mobileAuth.addEventListener('click', popup.open);
+
+popupPerfromEnter.addEventListener('click', popupEnterLink.open, popupSuccessAuth.close);
+// popupPerfromEnter.addEventListener('click', popupSuccessAuth.close);
+
 
 // авторизация по клику по кнопке
 signupNameInput.addEventListener('input', (e) => {

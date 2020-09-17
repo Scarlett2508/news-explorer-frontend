@@ -23,10 +23,6 @@ async function fetchArticles() {
   articles.forEach((articleData) => {
     createSavedArticle({articleData, mainApi, updateArticles})
   })
-  // показать малый заголовок
-  // показать большой заголовок с количеством статей
-  // ключевые слова
-  // отрисовать сохранённые статьи 
 }
 
 function getKeywordsData(articles) {

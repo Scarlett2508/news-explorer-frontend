@@ -28,50 +28,9 @@ const createSavedArticle = ({articleData, mainApi, updateArticles}) => {
     articleNode.remove();
     updateArticles(_id);
   })
-
-
-  
-  
-//     additionButton.addEventListener('click', async (e) => {
-//       // warningWord.classList.toggle('article__remove_hidden')
-//       additionButton.classList.toggle('article__bookmark_pressed');
-//       console.log(bookmarkedArticle)
-  
-//       if (bookmarkedArticle) {
-//         await mainApi.deleteArticle(bookmarkedArticle._id);
-//         updateSavedArticles({articleId: bookmarkedArticle._id});
-//       } else {
-//         const result = await mainApi.saveArticle({
-//           title,
-//           source: source.id || '',
-//           keyword: keyWord, 
-//           text: content,
-//           date: publishedAt,
-//           link: url,
-//           image: urlToImage,
-//         });
-//         updateSavedArticles({article: result.data})
-//       }
-//   });
   
   }
   
   
 export default createSavedArticle;
   
-//   date: "2020-08-24T14:22:33Z"
-// id: "20d12f53-4c5a-484c-8d3e-ae02d11c9593"
-// image: "https://icdn.lenta.ru/images/2020/08/24/15/20200824155237746/share_923f71ce959a944d141a1c154c901eda.jpg"
-// keyword: "природа"
-// link: "https://lenta.ru/news/2020/08/24/crimeaopros/"
-// source: "lenta"
-// text: ", , . .
-// ↵ , , , .
-// ↵« , . », .
-// ↵ , - . « , . , , », .
-// ↵, , . « , , . ? , , », .
-// ↵24 . , , , .
-// ↵*** «»: , , : travel@lenta-co.ru"
-// title: "Россияне поделились удивлением от отдыха в Крыму"
-// __v: 0
-// _id: "
