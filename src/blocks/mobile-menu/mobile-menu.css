@@ -9,7 +9,7 @@
 
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 460px) {
   .mobile-menu{
     display: flex;
     position: absolute;
@@ -26,8 +26,8 @@
   }
   /* стилизуем кнопку */
   .menu__btn {
-    display: flex; /* используем flex для центрирования содержимого */
-    align-items: center;  /* центрируем содержимое кнопки */
+    display: flex; 
+    align-items: center;  
     position: fixed;
     top: 20px;
     right: 20px;
@@ -35,6 +35,10 @@
     height: 26px;
     cursor: pointer;
     z-index: 1;
+  }
+
+  .menu__btn_black {
+    filter: invert(1);
   }
   /* добавляем "гамбургер" */
   .menu__btn > span,

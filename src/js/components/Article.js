@@ -32,7 +32,6 @@ const createArticle = ({articleData, userData, mainApi, savedArticles, keyWord, 
   additionButton.addEventListener('click', async (e) => {
     // warningWord.classList.toggle('article__remove_hidden')
     additionButton.classList.toggle('article__bookmark_pressed');
-    console.log(bookmarkedArticle)
 
     if (bookmarkedArticle) {
       await mainApi.deleteArticle(bookmarkedArticle._id);

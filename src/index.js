@@ -115,7 +115,7 @@ moreNewsButton.addEventListener('click', renderCurrentArticles);
 createHeader(userData);
 createMobileMenu(userData);
 
-const errorElem = document.querySelector('.error-text');
+// const errorElem = document.querySelector('.error-text');
 const loginEmailInput = document.getElementById('login_email');
 const loginPasswordInput = document.getElementById('login_password');
 const buttonLogout = document.querySelector('.menu__button_exit');
@@ -157,8 +157,10 @@ popupAuthLink.addEventListener('click', popupEnterLink.close);
 popupAuthLink.addEventListener('click', popup.open);
 
 popupPerfromEnter.addEventListener('click', popupEnterLink.open, popupSuccessAuth.close);
-// popupPerfromEnter.addEventListener('click', popupSuccessAuth.close);
 
+
+// const mobileAuth = document.querySelector('.mobile-menu__link_auth');
+// mobileAuth.addEventListener('click', popup.open);
 
 // авторизация по клику по кнопке
 signupNameInput.addEventListener('input', (e) => {
@@ -224,5 +226,3 @@ toEnter.addEventListener('click', async (e) => {
 
 
 
-// const formValidator = new Form(document.querySelector('.popup__form'));
-// formValidator.setEventListeners();

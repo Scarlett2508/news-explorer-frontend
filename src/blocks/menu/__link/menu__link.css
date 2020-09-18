@@ -38,8 +38,15 @@
   margin: auto;
 }
 
-@media screen and (max-width: 445px) {
+.menu__link_black-border {
+  color: black;
+  border: 1px solid black;
+  border-radius: 100px;
+}
+
+@media screen and (max-width: 460px) {
   .menu__link {
     display: none;
   }
 }
+

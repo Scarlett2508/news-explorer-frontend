@@ -7,7 +7,7 @@
   color: #1A1B22;
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 460px) {
   .author__title {
     font-size: 30px;
     line-height: 40px;

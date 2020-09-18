@@ -1,8 +1,9 @@
+import union from '../../images/Union.png'
+
 const createHeader = (userData, loggedinHeader = false) => {
   const rootNode = document.querySelector('.header__container');
   let template;
-  // header__logo_black
-
+  
   if (userData) {
     template = `
             <p class="header__logo header__logo_top ${loggedinHeader ? 'header__logo_black' : ''}">NewsExplorer</p>
@@ -12,8 +13,8 @@ const createHeader = (userData, loggedinHeader = false) => {
                   class="link menu__link_articles ${loggedinHeader ? 'menu__link_black' : ''}">Сохранённые
                   статьи</a></li>
                   ${loggedinHeader ? '' : '<li class="menu menu__button menu__button_auth popup__button_hidden"><a href="#" class="link menu__link">Авторизоваться</a></li>'}
-              <li class="menu menu__button menu__button_exit"><a href="#" class="link menu__link_exit ${loggedinHeader ? 'menu__link_black' : ''}">${userData.userName}</a>
-                <img src="./images/Union.png" alt="дверь на выход" class="menu__button_exit-pic">
+              <li class="menu menu__button menu__button_exit ${loggedinHeader ? 'menu__link_black-border' : ''}"><a href="#" class="link menu__link_exit ${loggedinHeader ? 'menu__link_black' : ''}">${userData.userName}</a>
+                <img src="${union}" alt="дверь на выход" class="menu__button_exit-pic ${loggedinHeader ? 'menu__button_exit-pic-black' : ''}">
               </li>
             </ul>
           `;

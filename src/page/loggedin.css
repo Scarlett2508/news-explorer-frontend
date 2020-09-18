@@ -10,6 +10,7 @@
 @import url(../blocks/header/__black/header__black.css);
 @import url(../blocks/loading/loading.css);
 @import url(../blocks/preloader/preloader.css);
+@import url(../blocks/mobile-menu/mobile-menu.css);
 
 body {
   background: #fff;

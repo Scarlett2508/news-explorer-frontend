@@ -37,8 +37,12 @@
     line-height: 20px;
   }
 }
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 460px) {
   .menu__button {
     display: none;
   }
+}
+
+.menu__button_exit-pic-black {
+  filter: invert(1);
 }
