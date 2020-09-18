@@ -1,3 +1,4 @@
+import { conforms } from 'lodash';
 import config from '../constants/config';
 
 export default class NewsApi {
