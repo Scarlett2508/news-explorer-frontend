@@ -1,4 +1,3 @@
-import { conforms } from 'lodash';
 import config from '../constants/config';
 
 export default class NewsApi {
@@ -12,9 +11,9 @@ export default class NewsApi {
   getArticles(keyWord) {
     return fetch(`${this.url}/everything?q=${keyWord}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`, {
       method: 'GET',
-      headers: {
-        authorization: `Bearer ${this.token}`,
-      },
+      // headers: {
+      //   authorization: `Bearer ${this.token}`,
+      // },
     })
       .then((res) => this.parseResponce(res))
       .catch((err) => {
