@@ -1,4 +1,4 @@
-const newsUrl = NODE_ENV === 'development' ? 'https://newsapi.org/v2' : 'https://praktikum.tk/news/v2/everything?q=';
+const newsUrl = NODE_ENV === 'development' ? 'https://newsapi.org/v2' : 'https://nomoreparties.co/news/v2';
 const myServer = NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://newsforsave.tk';
 
 const config = {
