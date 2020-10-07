@@ -33,6 +33,7 @@ export default class MainApi {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       credentials: 'include',
       body: JSON.stringify({
