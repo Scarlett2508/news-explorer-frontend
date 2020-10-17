@@ -14,9 +14,9 @@
   opacity: 0.8;
 }
 
-.mobile-menu__link_auth {
+/* .mobile-menu__link_auth {
   display: none;
-}
+} */
 
 .mobile-menu__link_exit {
   text-decoration: none;

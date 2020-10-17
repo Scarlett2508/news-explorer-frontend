@@ -31,7 +31,7 @@ const createMobileMenu = (userData, loggedinHeader = false) => {
         <li class="mobile-menu__button"><a class="menu__item" href="index.html" class="mobile-menu__link">Главная</a>
         </li>
         <li class="mobile-menu__button "><a href="#"
-        class="menu__item mobile-menu__link">Авторизоваться</a></li>
+        class="menu__item mobile-menu__link mobile-menu__link_auth">Авторизоваться</a></li>
       </ul>
     `;
     }

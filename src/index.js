@@ -2,27 +2,14 @@ import _debounce from 'lodash/debounce';
 
 import MainApi from './js/api/MainApi';
 import NewsApi from './js/api/NewsApi';
-import Form from './js/components/Form';
 import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
 import createMobileMenu from './js/components/MobileMenu';
 import Popup from './js/components/Popup';
-import ErrorHandler from './js/utils/errorHandler';
 
 import { ITEM_KEY } from './js/constants';
 
 import './page/index.css';
-
-
-
-// const { loadingNews, 
-//   notFoundNews, newsList, 
-//   firstIndexArray, nullResult, articleStatus, loadingResults, months
-//  } = require('./js/constants/others');
-
-// import config from './js/constants/config';
-
-
 
 const LIMIT = 4;
 
@@ -33,9 +20,6 @@ let searchInputValue = '';
 let offset = 0;
 let articles = [];
 let savedArticles = null;
-// const DEBOUNCE_DELAY = 500;
-
-// const errHandler = new ErrorHandler(errorElem);
 
 
 const userData = JSON.parse(localStorage.getItem(ITEM_KEY));
@@ -115,7 +99,6 @@ moreNewsButton.addEventListener('click', renderCurrentArticles);
 createHeader(userData);
 createMobileMenu(userData);
 
-// const errorElem = document.querySelector('.error-text');
 const loginEmailInput = document.getElementById('login_email');
 const loginPasswordInput = document.getElementById('login_password');
 const buttonLogout = document.querySelector('.menu__button_exit');
@@ -159,8 +142,8 @@ popupAuthLink.addEventListener('click', popup.open);
 popupPerfromEnter.addEventListener('click', popupEnterLink.open);
 popupPerfromEnter.addEventListener('click', popupSuccessAuth.close);
 
-// const mobileAuth = document.querySelector('.mobile-menu__link_auth');
-// mobileAuth.addEventListener('click', popup.open);
+const mobileAuth = document.querySelector('.mobile-menu__link_auth');
+mobileAuth.addEventListener('click', popup.open);
 
 // авторизация по клику по кнопке
 signupNameInput.addEventListener('input', (e) => {
