@@ -14,7 +14,6 @@ export default class MainApi {
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
       body: JSON.stringify({
         name,
         email,
@@ -33,9 +32,7 @@ export default class MainApi {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
-      credentials: 'include',
       body: JSON.stringify({
         email,
         password,
@@ -50,7 +47,6 @@ export default class MainApi {
   logout() {
     return fetch(`${this.url}/logout`, {
       method: 'POST',
-      credentials: 'include',
     })
       .then((res) => res.json());
   }

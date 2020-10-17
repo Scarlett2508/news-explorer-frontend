@@ -156,8 +156,8 @@ popupEnter.addEventListener('click', popupEnterLink.open);
 popupAuthLink.addEventListener('click', popupEnterLink.close);
 popupAuthLink.addEventListener('click', popup.open);
 
-popupPerfromEnter.addEventListener('click', popupEnterLink.open, popupSuccessAuth.close);
-
+popupPerfromEnter.addEventListener('click', popupEnterLink.open);
+popupPerfromEnter.addEventListener('click', popupSuccessAuth.close);
 
 // const mobileAuth = document.querySelector('.mobile-menu__link_auth');
 // mobileAuth.addEventListener('click', popup.open);
