@@ -9,7 +9,7 @@ const createArticle = ({articleData, userData, mainApi, savedArticles, keyWord, 
     <div class="article__image-container">
       <img src="${urlToImage}" alt="${title}" class="article__pic">
       <div class="article__addition">
-      <button class="article__addition article__button article__bookmark ${bookmarkedArticle ? 'article__bookmark_pressed' : ''}"></button>
+      <button class="article__addition article__button article__bookmark ${bookmarkedArticle && userData ? 'article__bookmark_pressed' : ''}"></button>
       <span class="article__remove article__addition-remove article__remove_hidden">Войдите, чтобы сохранять статьи</span>
       </div>
     
@@ -30,23 +30,26 @@ const createArticle = ({articleData, userData, mainApi, savedArticles, keyWord, 
 
 
   additionButton.addEventListener('click', async (e) => {
-    // warningWord.classList.toggle('article__remove_hidden')
-    additionButton.classList.toggle('article__bookmark_pressed');
-
-    if (bookmarkedArticle) {
-      await mainApi.deleteArticle(bookmarkedArticle._id);
-      updateSavedArticles({articleId: bookmarkedArticle._id});
-    } else {
-      const result = await mainApi.saveArticle({
-        title,
-        source: source.id || '',
-        keyword: keyWord, 
-        text: content,
-        date: publishedAt,
-        link: url,
-        image: urlToImage,
-      });
-      updateSavedArticles({article: result.data})
+    
+    try {
+      if (bookmarkedArticle) {
+        await mainApi.deleteArticle(bookmarkedArticle._id);
+        updateSavedArticles({articleId: bookmarkedArticle._id});
+      } else {
+        const result = await mainApi.saveArticle({
+          title,
+          source: source.id || '',
+          keyword: keyWord, 
+          text: content,
+          date: publishedAt,
+          link: url,
+          image: urlToImage,
+        });
+        updateSavedArticles({article: result.data})
+      }
+      additionButton.classList.toggle('article__bookmark_pressed');
+    } catch (error) {
+      warningWord.classList.toggle('article__remove_hidden')
     }
 });
 

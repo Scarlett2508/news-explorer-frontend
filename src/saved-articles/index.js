@@ -38,3 +38,17 @@ const updateArticles = (articleId) => {
 }
 
 fetchArticles();
+
+const buttonLogout = document.querySelector('.menu__button_exit');
+const popupAuth = document.querySelector('.menu__button_auth');
+const buttonSavedArticles = document.querySelector('.menu__button_saved-articles');
+
+if (buttonLogout) {
+  buttonLogout.addEventListener('click', () => {
+    localStorage.removeItem(ITEM_KEY);
+    buttonLogout.classList.add('popup__button_hidden');
+    // popupAuth.classList.remove('popup__button_hidden');
+    buttonSavedArticles.classList.add('popup__button_hidden');
+    createHeader(userData);
+  });
+}

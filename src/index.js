@@ -34,7 +34,7 @@ async function fetchArticles(keyWord) {
   [...articlesContainer.children].forEach((child) => child.remove());
   const result = await newsApi.getArticles(keyWord);
 
-  if (!savedArticles) {
+  if (!savedArticles && userData) {
     await fetchSavedArticles();
   }
   articles = result.articles;
@@ -70,7 +70,7 @@ function renderCurrentArticles() {
       articleData, 
       userData, 
       mainApi, 
-      savedArticles, 
+      savedArticles: savedArticles || articles, 
       keyWord: searchInputValue,
       updateSavedArticles,
      });
@@ -88,6 +88,9 @@ searchButton.addEventListener('click', (e) => {
   e.preventDefault();
   const loadingBlock = document.querySelector('.loading')
   loadingBlock.classList.remove('loading_hidden')
+  // if (userData) {
+  //   fetchArticles(searchInputValue);
+  // }
   fetchArticles(searchInputValue);
 });
 
@@ -142,8 +145,19 @@ popupAuthLink.addEventListener('click', popup.open);
 popupPerfromEnter.addEventListener('click', popupEnterLink.open);
 popupPerfromEnter.addEventListener('click', popupSuccessAuth.close);
 
+// mobile-menu
+
 const mobileAuth = document.querySelector('.mobile-menu__link_auth');
 mobileAuth.addEventListener('click', popup.open);
+
+const menuButtonExitMobile = document.querySelector('.menu__button_exit-mobile');
+
+
+if (menuButtonExitMobile) {
+  menuButtonExitMobile.addEventListener('click', () => {
+    localStorage.removeItem(ITEM_KEY);
+  });
+}
 
 // авторизация по клику по кнопке
 signupNameInput.addEventListener('input', (e) => {
