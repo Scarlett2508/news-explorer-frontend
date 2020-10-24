@@ -28,6 +28,7 @@ export default class MainApi {
 
   signin(options) {
     const { email, password } = options;
+
     return fetch(`${config.MAINAPI_URL}/signin`, {
       method: 'POST',
       headers: {

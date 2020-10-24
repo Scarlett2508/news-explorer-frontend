@@ -1,44 +1,44 @@
 export default class FormValidator {
-  constructor(popupElement) {
-    this.popupElement = popupElement;
+  constructor(form, button) {
+    this.form = form;
+    this.button = button;
+    this.setEventListeners();
   }
 
-  checkInputValidity(element) {
-    const errorElement = this.popupElement.querySelector(`#error-${element.id}`);
-    if (element.validity.valueMissing) {
-      element.setCustomValidity('Это обязательное поле');
-    } else if (element.type === 'text' && (element.validity.tooShort || element.value.length >= 30)) {
-      element.setCustomValidity('Длина должна быть от 2 до 30 символов');
-    } else if (element.validity.typeMismatch) {
-      element.setCustomValidity('Здесь должна быть ссылка');
-    } else {
-      element.setCustomValidity('');
+  checkInputValidity(event) {
+    this.event = event;
+
+    const errorMessage = {
+      validLenght: 'Должно быть от 2 до 30 символов!',
+      validInput: 'Это обязательное поле!',
+      validEmail: 'Неправильный формат email!',
+      validPassowrd: 'Пароль должен быть от 8 символов!'
+    };
+
+    let message = "";
+
+    if (this.event.target.validity.valueMissing) {
+      message = errorMessage.validInput;
+    } else if (this.event.target.validity.typeMismatch) {
+      message = errorMessage.validEmail;
+    } else if (this.event.target.validity.tooShort) {
+      message = errorMessage.validLenght;
     }
-    errorElement.textContent = element.validationMessage;
-  }
+    this.event.target.nextElementSibling.textContent = message;
+}
 
-  // setSubmitButtonState(buttonElem) {
-  //   if (input.length !== 0) {
-  //     buttonElem.setAttribute('disabled', true);
-  //     buttonElem.classList.add('popup__button_disabled');
-  //   } else {
-  //     buttonElem.removeAttribute('disabled');
-  //     buttonElem.classList.remove('popup__button_disabled');
-  //   }
-  // }
+  setSubmitButtonState() {
+    if (!this.form.checkValidity()) {
+      this.button.disabled = true;
+
+    } else {
+      this.button.disabled = false;
+      }
+  }
 
   setEventListeners() {
-    const button = document.querySelector('.popup__button');
-    const buttonEdit = document.querySelector('.popup__button_auth');
-    this.form = document.querySelector('.popup__form');
-    this.formForEdit = document.querySelector('.popup__profile-form');
-    this.form.addEventListener('input', (event) => {
-      this.checkInputValidity(event.target);
-      this.setSubmitButtonState(this.form, button);
-    });
-    this.formForEdit.addEventListener('input', (event) => {
-      this.checkInputValidity(event.target);
-      this.setSubmitButtonState(this.formForEdit, buttonEdit);
-    });
+    this.form.addEventListener('input', this.checkInputValidity.bind(this));
+    this.form.addEventListener('input', this.setSubmitButtonState.bind(this));
+
   }
 }

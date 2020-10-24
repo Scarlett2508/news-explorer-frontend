@@ -1,4 +1,6 @@
 import config from '../constants/config';
+import { getLastWeekDate } from '../constants/utils';
+
 
 export default class NewsApi {
   constructor(token) {
@@ -8,8 +10,11 @@ export default class NewsApi {
     this.apiKey = config.NEWSAPI_KEY;
   }
 
-  getArticles(keyWord) {
-    return fetch(`${this.url}/everything?q=${keyWord}&pageSize=${this.pageSize}&apiKey=${this.apiKey}`, {
+  getArticles(keyWord = '') {
+    if (keyWord.length < 2) {
+      return {articles: []};
+    }
+    return fetch(`${this.url}/everything?q=${keyWord}&pageSize=${this.pageSize}&apiKey=${this.apiKey}&from=${getLastWeekDate()}`, {
       method: 'GET',
       // headers: {
       //   authorization: `Bearer ${this.token}`,

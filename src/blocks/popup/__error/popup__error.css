@@ -9,6 +9,10 @@
   color: #FF0000;
 }
 
+.popup__error_hidden {
+  display: none;
+}
+
 .popup__error.active {
   padding: 0.3em;
 }

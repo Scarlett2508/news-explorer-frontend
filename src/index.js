@@ -6,6 +6,7 @@ import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
 import createMobileMenu from './js/components/MobileMenu';
 import Popup from './js/components/Popup';
+import FormValidator from './js/components/Form';
 
 import { ITEM_KEY } from './js/constants';
 
@@ -31,6 +32,7 @@ let newsApi = new NewsApi();
 const articlesContainer = document.querySelector('.article__list');
 
 async function fetchArticles(keyWord) {
+  const loadingBlock = document.querySelector('.loading');
   [...articlesContainer.children].forEach((child) => child.remove());
   const result = await newsApi.getArticles(keyWord);
 
@@ -38,8 +40,16 @@ async function fetchArticles(keyWord) {
     await fetchSavedArticles();
   }
   articles = result.articles;
+
+  if (articles.length) {
+    loadingBlock.classList.remove('loading_hidden');
+  } else {
+    loadingBlock.classList.add('loading_hidden');
+  }
+
   offset = 0;
   renderCurrentArticles();
+  
 }
 
 const fetchSavedArticles = () => {
@@ -86,12 +96,9 @@ searchInput.addEventListener('input', searchInputHandler);
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
-  const loadingBlock = document.querySelector('.loading')
-  loadingBlock.classList.remove('loading_hidden')
-  // if (userData) {
-  //   fetchArticles(searchInputValue);
-  // }
-  fetchArticles(searchInputValue);
+  // const loadingBlock = document.querySelector('.loading')
+  // loadingBlock.classList.remove('loading_hidden');
+  fetchArticles(searchInputValue)
 });
 
 const moreNewsButton = document.querySelector('.loading__button');
@@ -181,6 +188,22 @@ const toAuthorize = document.querySelector('.popup__button_auth');
 
 toAuthorize.addEventListener('click', async (e) => {
   e.preventDefault();
+  
+  if (!signupNameInputValue) {
+    const errorNode = document.getElementById('signup_name_error');
+    errorNode.classList.remove('popup__error_hidden')
+  }  
+  if (!loginEmailInputValue) {
+    const errorNode = document.getElementById('signup_email_error');
+    errorNode.classList.remove('popup__error_hidden')
+  }
+  if (!loginPasswordInputValue) {
+    const errorNode = document.getElementById('signup_password_error');
+    errorNode.classList.remove('popup__error_hidden')
+  }
+  if (!signupNameInputValue || !loginEmailInputValue || !loginPasswordInputValue) {
+    return;
+  }
 
   try {
     const userData = await mainApi.signup({
@@ -202,6 +225,18 @@ const toEnter = document.querySelector('.popup__button_enter');
 toEnter.addEventListener('click', async (e) => {
   e.preventDefault();
 
+  if (!loginEmailInputValue) {
+    const errorNode = document.getElementById('signin_email_error');
+    errorNode.classList.remove('popup__error_hidden')
+  }
+  if (!loginPasswordInputValue) {
+    const errorNode = document.getElementById('signin_password_error');
+    errorNode.classList.remove('popup__error_hidden')
+  }
+  if (!loginEmailInputValue || !loginPasswordInputValue) {
+    return;
+  }
+
   try {
     const userData = await mainApi.signin({
       email: loginEmailInputValue,
@@ -222,4 +257,5 @@ toEnter.addEventListener('click', async (e) => {
 });
 
 
-
+// const searchValidation = new FormValidator(searchInput, searchButton);
+// searchValidation.setEventListeners();
