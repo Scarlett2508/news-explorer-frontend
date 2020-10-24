@@ -6,7 +6,6 @@ import createHeader from './js/components/Header';
 import createArticle from './js/components/Article';
 import createMobileMenu from './js/components/MobileMenu';
 import Popup from './js/components/Popup';
-import FormValidator from './js/components/Form';
 
 import { ITEM_KEY } from './js/constants';
 
@@ -255,7 +254,3 @@ toEnter.addEventListener('click', async (e) => {
     console.error(`signin failed ${error}`);
   }
 });
-
-
-// const searchValidation = new FormValidator(searchInput, searchButton);
-// searchValidation.setEventListeners();
