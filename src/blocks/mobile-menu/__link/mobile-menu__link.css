@@ -7,11 +7,16 @@
   font-size: 18px;
   line-height: 56px;
   color: #FFFFFF;
+
 }
 
-.mobile-menu__link_auth {
-  display: none;
+.mobile-menu__link:hover {
+  opacity: 0.8;
 }
+
+/* .mobile-menu__link_auth {
+  display: none;
+} */
 
 .mobile-menu__link_exit {
   text-decoration: none;

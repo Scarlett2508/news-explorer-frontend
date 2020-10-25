@@ -14,99 +14,14 @@
 
 <body>
   <main class="page">
-    <header class="header__black">
-      <div class="header__container">
-        <p class="header__logo header__logo_black">NewsExplorer</p>
-        <ul class="menu">
-          <li class="menu menu__button "><a href="#" class="link menu__link menu__link_black">Главная</a></li>
-          <li class="menu menu__button menu__button_saved-articles menu__button_saved-articles_black"><a href="#"
-              class="link menu__link_articles menu__link_articles-loggedin">Сохранённые
-              статьи</a></li>
-          <li class="menu menu__button menu__button_exit menu__button_exit_black "><a href="#"
-              class="link menu__link_exit menu__link_black">Грета</a>
-            <img src="<%=require('./images/UnionBlack.png').default %>" alt="дверь на выход"
-              class="menu__button_exit-pic"></li>
-          <li class="menu menu__button menu__button_auth"><a href="#"
-              class="link menu__link menu__link_black">Авторизоваться</a></li>
-        </ul>
-      </div>
-    </header>
+    <div class="header__container header__black"></div>
+    <header class="mobile-menu"></header>
 
-    <section class="top">
-      <h2 class="top__title">Сохранённые статьи</h2>
-      <div class="top__description">
-        <h3 class="top__subtitle">Грета, у вас 5 сохранённых статей</h3>
-        <p class="top__text">По ключевым словам: <span class="top__text_bold">Природа, Тайга и 2 другим</span></p>
-      </div>
-    </section>
-
-    <section class="saved-articles">
-      <div class="articles articles_saved">
-        <div class="article article__loggedin">
-          <div class="article__image-container">
-            <img class="article__pic" src="<%=require('./images/image_08.png').default %>" alt="Фотография новости">
-            <div class="article__bookmark article__bookmark_delete"></div>
-          </div>
-          <span class="article__date">2 августа, 2019</span>
-          <h3 class="article__title">Национальное достояние – парки</h3>
-          <p class="article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
-            складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться
-            к природе.</p>
-          <a class="article__source" href="#">Лента.ру</a>
-        </div>
-        <div class="article article__loggedin">
-          <div class="article__image-container">
-            <img class="article__pic" src="<%=require('./images/image_04.png').default %>" alt="Фотография новости">
-            <div class="article__bookmark article__bookmark_delete article__bookmark_delete-pressed"></div>
-          </div>
-          <div class="article__addition article__addition-keyword"><span class="article__keyword">Природа</span></div>
-          <div class="article__addition article__addition-remove"><span class="article__remove">Убрать из
-              сохранённых</span></div>
-          <span class="article__date">2 августа, 2019</span>
-          <h3 class="article__title">Лесные огоньки: история одной фотографии</h3>
-          <p class="article__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы
-            запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-          <a class="article__source" href="#">Медуза</a>
-        </div>
-
-        <div class="article article__loggedin">
-          <div class="article__image-container">
-            <img class="article__pic" src="<%=require('./images/image_07.png').default %>" alt="Фотография новости">
-            <div class="article__bookmark article__bookmark_delete"></div>
-          </div>
-          <span class="article__date">2 августа, 2019</span>
-          <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-          <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
-            необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-          <a class="article__source" href="#">Риа</a>
-        </div>
-        <div class="article article__loggedin">
-          <div class="article__image-container">
-            <img class="article__pic" src="<%=require('./images/image_07.png').default %>" alt="Фотография новости">
-            <div class="article__bookmark article__bookmark_delete"></div>
-          </div>
-          <span class="article__date">2 августа, 2019</span>
-          <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-          <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
-            необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-          <a class="article__source" href="#">Риа</a>
-        </div>
-
-        <div class="article article__loggedin">
-          <div class="article__image-container">
-            <img class="article__pic" src="<%=require('./images/image_07.png').default %>" alt="Фотография новости">
-            <div class="article__bookmark article__bookmark_delete"></div>
-          </div>
-          <span class="article__date">2 августа, 2019</span>
-          <h3 class="article__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-          <p class="article__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о
-            необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-          <a class="article__source" href="#">Риа</a>
-        </div>
-
-
-      </div>
-    </section>
+    <section class="top"></section>
+    <div class="loading__search">
+      <i class="preloader"></i>
+    </div>
+    <div class="article__list"></div>
     <footer class="footer">
       <div class="footer__container">
         <p class="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>

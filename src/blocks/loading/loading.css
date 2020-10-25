@@ -12,3 +12,7 @@
   background: #F5F6F7;
   text-align: center;
 }
+
+.loading_hidden {
+  display: none;
+}

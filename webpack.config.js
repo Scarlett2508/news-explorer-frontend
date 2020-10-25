@@ -10,9 +10,10 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
+  // entry: ["babel-polyfill", './src/index.js','./src/saved-articles/index.js'],
   entry: {
-    main: './src/index.js',
-    loggedin: './src/saved-articles/index.js',
+    main: ["babel-polyfill", './src/index.js'],
+    loggedin: ["babel-polyfill",'./src/saved-articles/index.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

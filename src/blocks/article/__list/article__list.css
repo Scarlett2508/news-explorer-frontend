@@ -1,0 +1,35 @@
+.article__list {
+    position: relative;
+    /* width: 100%; */
+  background-color: #f5f6f7;;
+  border-radius: 15px;
+  display: grid;
+  margin: 40px;
+  /* grid-template-columns: repeat(auto-fill, 380px); */
+  grid-gap: 15px;
+  grid-template-columns: repeat(3,400px);
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1370px) {
+    .article__list {
+        grid-template-columns: repeat(3,1fr);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .article__list {
+        
+        grid-template-columns: repeat(2,1fr);
+    }
+  }
+
+@media screen and (max-width: 620px) {
+    .article__list {
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+
+  

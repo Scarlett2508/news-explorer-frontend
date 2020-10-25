@@ -10,3 +10,7 @@
 .top__text_bold {
   font-weight: bold;
 }
+
+.top__text_hidden {
+  display: none;
+}

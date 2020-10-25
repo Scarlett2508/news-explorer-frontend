@@ -1,3 +1,5 @@
+@import url('./_disabled.css');
+
 .popup__button {
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
 
@@ -22,4 +24,15 @@
 
 .popup__button:active {
   background: #2A65CC;
+}
+
+.popup__button_hidden {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__button{
+  margin: auto;
+  width: 92%;
+  }
 }

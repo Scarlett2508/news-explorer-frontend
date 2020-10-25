@@ -17,3 +17,12 @@
 .menu__button_exit_black {
   border: 1px solid black;
 }
+
+
+.menu__button_exit-pic_black {
+  filter: invert(1);
+}
+
+.menu__button_exit-mobile {
+  margin: 10px 50px 0 100px;
+}

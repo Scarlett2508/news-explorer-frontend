@@ -1,4 +1,7 @@
 .loading__not-found {
   padding-top: 80px;
+}
+
+.loading__not-found_hidden {
   display: none;
 }

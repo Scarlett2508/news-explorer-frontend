@@ -6,37 +6,42 @@
 @import url(./__text/article__text.css);
 @import url(./__title/article__title.css);
 @import url(./__addition/article__addition.css);
+@import url(./__list/article__list.css);
 
 .article {
   position: relative;
-  width: 100%;
+  width: auto;
   background-color: #FFF;
   border-radius: 15px;
   border: 1px solid #FFF;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .article__loggedin {
   border: none;
 }
 
-@media screen and (max-width: 750px) {
+
+@media screen and (max-width: 620px) {
   .article {
-    width: 80%;
+    
     margin: auto;
   }
 }
 
-@media screen and (max-width: 650px) {
-  .article {
-    width: 85%;
-    margin: auto;
-  }
+.search-results {
+  font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    margin: 0;
+    padding: 40px 0 64px 80px;
+    text-align: left;
 }
 
-@media screen and (max-width: 550px) {
-  .article {
-    width: 98%;
-  }
+.article__link {
+  text-decoration: none;
 }

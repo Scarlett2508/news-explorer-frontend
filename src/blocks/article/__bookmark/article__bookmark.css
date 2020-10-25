@@ -23,6 +23,7 @@ background-image: url('../../../images/bookmarkBlack.png');
 
 .article__bookmark_delete {
   background-image: url('../../../images/trash.png');
+  
 }
 
 .article__bookmark_delete:hover {

@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 460px) {
   .menu__button_addition {
     display: block;
     cursor: pointer;
@@ -11,7 +11,7 @@
   }
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 460px) {
   .menu__link_addition {
     height: 24px;
   }
