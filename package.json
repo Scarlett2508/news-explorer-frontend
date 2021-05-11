@@ -55,7 +55,7 @@
         "core-js": "3.4.1",
         "cross-env": "7.0.2",
         "cssnano": "4.1.10",
-        "lodash": "^4.17.20",
+        "lodash": "^4.17.21",
         "regenerator-runtime": "^0.13.7"
     },
     "babel": {
